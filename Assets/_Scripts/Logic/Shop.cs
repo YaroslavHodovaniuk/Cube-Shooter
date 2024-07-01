@@ -36,11 +36,12 @@ public class Shop : Singleton<Shop>
         }  
     }
     public UnityAction<int> PlayerBalanceHasChanged;
+
     private void Start()
     {
         // Загрузка баланса игрока из PlayerPrefs
         PlayerBalance = PlayerPrefs.GetInt("PlayerBalance", 100000); // Начальный баланс - 1000 монет
-
+        
     }
 
     public void PurchaseWeapon(int index)

@@ -7,11 +7,11 @@ public class UIWindowManager : MonoBehaviour
     [SerializeField] private MoneyCountUI moneyCountUI;
     private WindowUI _currentWindow;
 
-    private void OnEnable()
+    private void Start()
     {
         for (int i = 0; i < windowUIs.Count; i++)
         {
-            WindowUI window = windowUIs[i];
+            WindowUI window = windowUIs[i];            
             window.GoToNextWindowAction += OpenNewWindow;
             window.m_Index = i;
         }
@@ -27,6 +27,10 @@ public class UIWindowManager : MonoBehaviour
     }
     private void SetStartWindow()
     {
+        foreach(var window in windowUIs)
+        {
+            window.gameObject.SetActive(false);
+        }
         OpenNewWindow(0);
     }
 
@@ -35,6 +39,7 @@ public class UIWindowManager : MonoBehaviour
         ClosePreviosWindow();
         _currentWindow = windowUIs[index];
         _currentWindow.gameObject.SetActive(true);
+        _currentWindow.Init();
     }
     private void ClosePreviosWindow()
     {

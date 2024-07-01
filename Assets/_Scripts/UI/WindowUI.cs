@@ -10,15 +10,11 @@ public class WindowUI : MonoBehaviour
 
     public UnityAction<int> GoToNextWindowAction;
 
-    private void OnEnable()
-    {
-        Init();
-    }
     private void OnDisable()
     {
         DisableButtons();
     }
-    protected virtual void Init()
+    public virtual void Init()
     {
         InitButtons();
     }

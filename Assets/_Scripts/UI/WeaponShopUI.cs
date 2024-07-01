@@ -15,7 +15,7 @@ public class WeaponShopUI : WindowUI
     {
         throw new NotImplementedException();
     }
-    protected override void Init()
+    public override void Init()
     {
         base.Init();
         shopGrid.Init();
