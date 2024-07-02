@@ -10,41 +10,41 @@ public class ShopCell : MonoBehaviour
     [SerializeField] private Button _buyButton;
     [SerializeField] private Button _equipButton;
 
-    [SerializeField] private Color _equipedcolor;
-    [SerializeField] private Color _unequipedcolor;
+    [SerializeField] private Sprite _equipedSprite;
+    [SerializeField] private Sprite _unequipedSprite;
 
     private int _index;
     public void Init(Sprite Icon, int index)   //add icon, not GameObject
     {
         _index = index;
         priceText.text = Shop.Instance.GetPrice(_index).ToString();
-        InitButtons();
-        Shop.Instance.CurrentEquipedWeaponHasChanged += ChangeEquipButtonByShop;
+
         _conteiner.sprite = Icon;
+
+        InitButtons();
+    }
+
+    private void OnEnable()
+    {
+        InitButtons();
     }
     private void OnDisable()
     {
         _buyButton.onClick.RemoveAllListeners();
         _equipButton.onClick.RemoveAllListeners();
-        Shop.Instance.CurrentEquipedWeaponHasChanged -= ChangeEquipButtonByShop;
+        if(Shop.Instance != null) Shop.Instance.CurrentEquipedWeaponHasChanged -= ChangeEquipButtonByShop;
     }
     private void InitButtons()
     {
         _buyButton.onClick.AddListener(OnBuyButtonPressed);
-        //equiped button assign
+        _equipButton.onClick.AddListener(OnEquipButtonPressed);
 
         _buyButton.gameObject.SetActive(false);
         _equipButton.gameObject.SetActive(false);
 
-        if (Shop.Instance.CheckBoughtWeapon(_index))
-        {
-            _equipButton.gameObject.SetActive(true);
-        }
-        else
-        {
-            _buyButton.gameObject.SetActive(true);
-        }
+        Shop.Instance.CurrentEquipedWeaponHasChanged += ChangeEquipButtonByShop;
         CheckIsPurchased();
+        TrySetEquiped();
     }
 
     private void OnBuyButtonPressed()
@@ -64,30 +64,41 @@ public class ShopCell : MonoBehaviour
 
     private void OnEquipButtonPressed()
     {
-        if (Shop.Instance.TryEquipWeapon(_index))
+        Shop.Instance.TryEquipWeapon(_index);
+    }
+
+    private void TrySetEquiped()
+    {
+        if (Shop.Instance.CurrentEquipedWeaponIndex == _index)
         {
-            priceText.text = "";
-            ChangeEquipButton(true); 
+            ChangeEquipButton(true);
         }
     }
 
     private void ChangeEquipButtonByShop()
     {
-        ChangeEquipButton(false);
+        if (Shop.Instance.CurrentEquipedWeaponIndex == _index)
+        {
+            ChangeEquipButton(true);
+        }
+        else
+        {
+            ChangeEquipButton(false);
+        }
     }
 
     private void ChangeEquipButton(bool key)
     {
         if (key)
         {
-            priceText.text = "Equiped";
+            _equipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Equiped";
 
-            _equipButton.GetComponent<Image>().color = _equipedcolor;
+            _equipButton.GetComponent<Image>().sprite = _equipedSprite;
         }
         else
         {
-            priceText.text = "Equip";
-            _equipButton.GetComponent<Image>().color = _unequipedcolor;
+            _equipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Equip";
+            _equipButton.GetComponent<Image>().sprite = _unequipedSprite;
         }
     }
 }

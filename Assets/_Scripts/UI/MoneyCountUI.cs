@@ -11,10 +11,13 @@ public class MoneyCountUI : MonoBehaviour
     }
     private void UpdateBalance(int value)
     {
-        _textMeshPro.text = "Money: " + value.ToString();
+        _textMeshPro.text = value.ToString();
     }
     private void OnDisable()
     {
-        Shop.Instance.PlayerBalanceHasChanged -= UpdateBalance;
+        if (Shop.Instance != null)
+        {
+            Shop.Instance.PlayerBalanceHasChanged -= UpdateBalance;
+        }
     }
 }
