@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f5bb5cad2084b4e894f4def3095fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _conteiner: {fileID: 815696586517634393}
+  _conteiner: {fileID: 5812904367260451858}
   text: {fileID: 796823946344913649}
   _buyButton: {fileID: 1231159330074683140}
   _equipButton: {fileID: 7874710524088547516}

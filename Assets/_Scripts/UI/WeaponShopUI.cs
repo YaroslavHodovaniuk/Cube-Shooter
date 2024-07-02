@@ -6,15 +6,6 @@ public class WeaponShopUI : WindowUI
 {
     [SerializeField] private ShopGrid shopGrid;
 
-    public void UpdateButton()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateMoneyText(int playerBalance)
-    {
-        throw new NotImplementedException();
-    }
     public override void Init()
     {
         base.Init();
@@ -23,16 +14,30 @@ public class WeaponShopUI : WindowUI
 
     protected override void InitButtons()
     {
-        m_Buttons[0].onClick.AddListener(OnBackToStartMenuButtonPreesed);
+        m_Buttons[0].onClick.AddListener(OnBackMenuButtonPreesed);
+        m_Buttons[1].onClick.AddListener(GoToStartMenuButtonPreesed);
+        m_Buttons[2].onClick.AddListener(GoToMapMenuButtonPreesed);
+        m_Buttons[3].onClick.AddListener(GoToWeaponMenuButtonPreesed);
+        m_Buttons[4].onClick.AddListener(OnStartMenuButtonPreesed);
     }
-    protected override void DisableButtons()
+    private void OnBackMenuButtonPreesed()
     {
-        m_Buttons[0].onClick.RemoveAllListeners();
+        GoToNextWindowAction?.Invoke(m_Index - 1);
     }
-    private void OnBackToStartMenuButtonPreesed()
+    private void GoToStartMenuButtonPreesed()
     {
         GoToNextWindowAction?.Invoke(0);
     }
-    
-
+    private void GoToMapMenuButtonPreesed()
+    {
+        GoToNextWindowAction?.Invoke(1);
+    }
+    private void GoToWeaponMenuButtonPreesed()
+    {
+        GoToNextWindowAction?.Invoke(2);
+    }
+    private void OnStartMenuButtonPreesed()
+    {
+        Debug.Log("startlevel");
+    }
 }

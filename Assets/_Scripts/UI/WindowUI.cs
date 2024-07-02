@@ -22,8 +22,11 @@ public class WindowUI : MonoBehaviour
     {
         
     }
-    protected virtual void DisableButtons()
+    protected void DisableButtons()
     {
-
+        for (int i = 0; i < m_Buttons.Count; i++)
+        {
+            m_Buttons[i].onClick.RemoveAllListeners();
+        }
     }
 }

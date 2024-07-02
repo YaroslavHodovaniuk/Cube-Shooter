@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UIWindowManager : MonoBehaviour
 {
-    [SerializeField] private List<WindowUI> windowUIs;  // 0-startMenu; 1-weaponshop;   2-mapShop; ??-setting
+    [SerializeField] private List<WindowUI> windowUIs;  // 0-startMenu;  1-mapShop; 2-weaponshop; ??-setting
     [SerializeField] private MoneyCountUI moneyCountUI;
     private WindowUI _currentWindow;
 

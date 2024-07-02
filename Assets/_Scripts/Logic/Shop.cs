@@ -52,8 +52,6 @@ public class Shop : Singleton<Shop>
             PlayerPrefs.SetInt("PlayerBalance", PlayerBalance);
             PlayerPrefs.SetInt(index.ToString(), 1); // Сохранение покупки 
 
-            //WeaponShopUI.Instance.UpdateMoneyText(playerBalance);
-
             Debug.Log($"weapon {index} purchased!");
         }
         else
