@@ -14,8 +14,7 @@ public class ShopCell : MonoBehaviour
     [SerializeField] private Color _unequipedcolor;
 
     private int _index;
-    private GameObject weaponObj;
-    public void Init(GameObject Icon, int index)   //add icon, not GameObject
+    public void Init(Sprite Icon, int index)   //add icon, not GameObject
     {
         _index = index;
         priceText.text = Shop.Instance.GetPrice(_index).ToString();
@@ -59,13 +58,13 @@ public class ShopCell : MonoBehaviour
         {
             _equipButton.gameObject.SetActive(true);
             _buyButton.gameObject.SetActive(false);
-            text.text = "";
+            priceText.text = "";
         }
     }
 
     private void OnEquipButtonPressed()
     {
-        if (Shop.Instance.EquipWeapon(_index))
+        if (Shop.Instance.TryEquipWeapon(_index))
         {
             priceText.text = "";
             ChangeEquipButton(true); 

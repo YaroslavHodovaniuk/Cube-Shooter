@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class Shop : Singleton<Shop>
 {
+    private const int _defaultEquipedWeaponIndex = 0;
+
+    private int _currentEquipedWeaponIndex;
 
     private int playerBalance;
 
@@ -35,10 +38,22 @@ public class Shop : Singleton<Shop>
             PlayerBalanceHasChanged?.Invoke(playerBalance);
         }  
     }
+
+    public int CurrentEquipedWeaponIndex 
+    { 
+        get => _currentEquipedWeaponIndex;
+        set 
+        {
+            _currentEquipedWeaponIndex = value;
+        } 
+    }
+
     public UnityAction<int> PlayerBalanceHasChanged;
+    public UnityAction CurrentEquipedWeaponHasChanged;
 
     private void Start()
     {
+        CurrentEquipedWeaponIndex = _defaultEquipedWeaponIndex;
         // Загрузка баланса игрока из PlayerPrefs
         PlayerBalance = PlayerPrefs.GetInt("PlayerBalance", 100000); // Начальный баланс - 1000 монет
         
@@ -57,6 +72,19 @@ public class Shop : Singleton<Shop>
         else
         {
             Debug.Log("Not enough balance!");
+        }
+    }
+
+    public bool TryEquipWeapon(int index)
+    {
+        if (CheckBoughtWeapon(index))
+        {
+            CurrentEquipedWeaponIndex = index;
+            return true;
+        }
+        else 
+        {
+            return false;
         }
     }
 
