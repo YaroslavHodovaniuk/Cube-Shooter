@@ -175,6 +175,8 @@ GameObject:
   - component: {fileID: 57128724154106020}
   - component: {fileID: 2873426111101072490}
   - component: {fileID: 5275150463450938665}
+  - component: {fileID: 6504724719383114640}
+  - component: {fileID: 2779018202842977887}
   m_Layer: 0
   m_Name: P_Showcase_FP_CH_Animations
   m_TagString: Untagged
@@ -260,6 +262,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSetRoot: {fileID: 6925852737574979045}
+--- !u!114 &6504724719383114640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867962812867622432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef46ecb879c940f3bd09e457dd5a4e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 0}
+  armLeftTarget: {fileID: 0}
+  armLeftWeightPosition: 1
+  armLeftWeightRotation: 1
+  armLeftHierarchy: []
+  armRightTarget: {fileID: 0}
+  armRightWeightPosition: 1
+  armRightWeightRotation: 1
+  armRightHierarchy: []
+  hint: {fileID: 0}
+  weightHint: 0
+--- !u!114 &2779018202842977887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867962812867622432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cedea47162792a74cb9ec77109d20e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowerWeapon: {fileID: 0}
+  weaponIndexEquippedAtStart: 0
+  inventory: {fileID: 0}
+  grenadesUnlimited: 0
+  grenadeTotal: 10
+  grenadeSpawnOffset: 1
+  grenadePrefab: {fileID: 0}
+  knife: {fileID: 0}
+  cameraWorld: {fileID: 2398873939300819323}
+  cameraDepth: {fileID: 0}
+  dampTimeTurning: 0.4
+  dampTimeLocomotion: 0.15
+  dampTimeAiming: 0.3
+  runningInterpolationSpeed: 12
+  aimingSpeedMultiplier: 1
+  characterAnimator: {fileID: 57128724154106018}
+  fieldOfView: 100
+  fieldOfViewRunningMultiplier: 1.05
+  fieldOfViewWeapon: 55
+  audioClipsMelee: []
+  audioClipsGrenadeThrow: []
+  holdToRun: 1
+  holdToAim: 1
 --- !u!1 &892560177767353220
 GameObject:
   m_ObjectHideFlags: 0
