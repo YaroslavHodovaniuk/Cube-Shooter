@@ -253,12 +253,12 @@ namespace Toolbox.Editor
         /// Determines if property has any associated drawer (built-in or custom one).
         /// This method does not take into account <see cref="ToolboxDrawer"/>s.
         /// </summary>
-        internal static bool HasNativeTypeDrawer(Type type)
+        /*internal static bool HasNativeTypeDrawer(Type type)
         {
             var parameters = new object[] { type };
             var result = getDrawerTypeForTypeMethod.Invoke(null, parameters) as Type;
             return result != null && typeof(PropertyDrawer).IsAssignableFrom(result);
-        }
+        }*/
 
         /// <summary>
         /// Checks if provided type has an associated <see cref="ToolboxTargetTypeDrawer"/>.

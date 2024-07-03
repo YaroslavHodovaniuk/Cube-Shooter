@@ -123,7 +123,7 @@ namespace Toolbox.Editor
             }
 
             //check if this property has built-in property drawer
-            if (!(hasBuiltInPropertyDrawer = ToolboxDrawerModule.HasNativeTypeDrawer(type)))
+            /*if (!(hasBuiltInPropertyDrawer = ToolboxDrawerModule.HasNativeTypeDrawer(type)))
             {
                 var propertyAttributes = fieldInfo.GetCustomAttributes<PropertyAttribute>();
                 foreach (var attribute in propertyAttributes)
@@ -134,7 +134,7 @@ namespace Toolbox.Editor
                         break;
                     }
                 }
-            }
+            }*/
         }
 
         /// <summary>
