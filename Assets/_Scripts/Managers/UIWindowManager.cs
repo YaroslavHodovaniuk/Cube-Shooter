@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class UIWindowManager : MonoBehaviour
 {
-    [SerializeField] private List<WindowUI> windowUIs;  // 0-startMenu;  1-mapShop; 2-weaponshop; ??-setting
+    [SerializeField] private List<WindowUI> windows;  // 0-startMenu;  1-mapShop; 2-weaponshop; ??-setting
     [SerializeField] private MoneyCountUI moneyCountUI;
     private WindowUI _currentWindow;
 
     private void Start()
     {
-        for (int i = 0; i < windowUIs.Count; i++)
+        for (int i = 0; i < windows.Count; i++)
         {
-            WindowUI window = windowUIs[i];            
+            WindowUI window = windows[i];            
             window.GoToNextWindowAction += OpenNewWindow;
             window.m_Index = i;
         }
@@ -20,14 +20,14 @@ public class UIWindowManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        foreach (var window in windowUIs)
+        foreach (var window in windows)
         {
             window.GoToNextWindowAction -= OpenNewWindow;
         }
     }
     private void SetStartWindow()
     {
-        foreach(var window in windowUIs)
+        foreach(var window in windows)
         {
             window.gameObject.SetActive(false);
         }
@@ -37,7 +37,7 @@ public class UIWindowManager : MonoBehaviour
     private void OpenNewWindow(int index)
     {
         ClosePreviosWindow();
-        _currentWindow = windowUIs[index];
+        _currentWindow = windows[index];
         _currentWindow.gameObject.SetActive(true);
         _currentWindow.Init();
     }
