@@ -44,7 +44,6 @@ public class Shop : Singleton<Shop>
         get => _currentEquipedWeaponIndex;
         set 
         {
-            Debug.Log(value);
             _currentEquipedWeaponIndex = value;
             CurrentEquipedWeaponHasChanged?.Invoke();
         } 
