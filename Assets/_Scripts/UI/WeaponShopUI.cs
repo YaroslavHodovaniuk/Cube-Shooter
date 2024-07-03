@@ -18,7 +18,7 @@ public class WeaponShopUI : WindowUI
         m_Buttons[1].onClick.AddListener(GoToStartMenuButtonPreesed);
         m_Buttons[2].onClick.AddListener(GoToMapMenuButtonPreesed);
         m_Buttons[3].onClick.AddListener(GoToWeaponMenuButtonPreesed);
-        m_Buttons[4].onClick.AddListener(OnStartMenuButtonPreesed);
+        m_Buttons[4].onClick.AddListener(OnStartLevelButtonPreesed);
     }
     private void OnBackMenuButtonPreesed()
     {
@@ -36,8 +36,9 @@ public class WeaponShopUI : WindowUI
     {
         GoToNextWindowAction?.Invoke(2);
     }
-    private void OnStartMenuButtonPreesed()
+    private void OnStartLevelButtonPreesed()
     {
-        Debug.Log("startlevel");
+        Shop.Instance.OnStartLevel?.Invoke();
+        Systems.Instance.StartLevel();
     }
 }

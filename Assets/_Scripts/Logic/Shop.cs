@@ -52,7 +52,16 @@ public class Shop : Singleton<Shop>
 
     public UnityAction<int> PlayerBalanceHasChanged;
     public UnityAction CurrentEquipedWeaponHasChanged;
+    public UnityAction OnStartLevel;
 
+    private void OnEnable()
+    {
+        OnStartLevel += TraslateDataToSystems;
+    }
+    private void OnDisable() 
+    {
+        OnStartLevel -= TraslateDataToSystems;
+    }
     private void Start()
     {
         CurrentEquipedWeaponIndex = _defaultEquipedWeaponIndex;
@@ -105,4 +114,8 @@ public class Shop : Singleton<Shop>
         return _weaponPrices[id];
     }
 
+    private void TraslateDataToSystems()
+    {
+        Systems.Instance.LevelData.ChoosedWeaponID = _currentEquipedWeaponIndex;
+    }
 }
