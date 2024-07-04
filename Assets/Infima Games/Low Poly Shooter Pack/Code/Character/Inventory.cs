@@ -28,10 +28,10 @@ namespace InfimaGames.LowPolyShooterPack
         {
             //Cache all weapons. Beware that weapons need to be parented to the object this component is on!
             weapons = GetComponentsInChildren<WeaponBehaviour>(true);
-            
-            //Disable all weapons. This makes it easier for us to only activate the one we need.
-            foreach (WeaponBehaviour weapon in weapons)
-                weapon.gameObject.SetActive(false);
+
+            ////Disable all weapons. This makes it easier for us to only activate the one we need.
+            //foreach (WeaponBehaviour weapon in weapons)
+            //    weapon.gameObject.SetActive(false);
 
             //Equip.
             Equip(equippedAtStart);
@@ -39,6 +39,8 @@ namespace InfimaGames.LowPolyShooterPack
 
         public override WeaponBehaviour Equip(int index)
         {
+            if (equipped != null && weapons[index] != equipped)
+                return null;
             //If we have no weapons, we can't really equip anything.
             if (weapons == null)
                 return equipped;

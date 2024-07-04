@@ -10,6 +10,7 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
     public static event Action<LevelGameState> OnAfterStateChanged;
 
     public LevelGameState State { get; private set; }
+    public LevelData LevelData => levelData;
 
     // Kick the game off with the first state
     void Start() => ChangeState(LevelGameState.Starting);

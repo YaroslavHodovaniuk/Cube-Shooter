@@ -26,9 +26,9 @@ namespace InfimaGames.LowPolyShooterPack
 		
 		[Title(label: "Inventory")]
 		
-		[Tooltip("Determines the index of the weapon to equip when the game starts.")]
-		[SerializeField]
-		private int weaponIndexEquippedAtStart;
+		//[Tooltip("Determines the index of the weapon to equip when the game starts.")]
+		//[SerializeField]
+		//private int weaponIndexEquippedAtStart;
 		
 		[Tooltip("Inventory.")]
 		[SerializeField]
@@ -299,7 +299,7 @@ namespace InfimaGames.LowPolyShooterPack
 			movementBehaviour = GetComponent<MovementBehaviour>();
 
 			//Initialize Inventory.
-			inventory.Init(weaponIndexEquippedAtStart);
+			inventory.Init(LevelGameManager.Instance.LevelData.ChoosedWeaponID);
 
 			//Refresh!
 			RefreshWeaponSetup();
@@ -1309,7 +1309,7 @@ namespace InfimaGames.LowPolyShooterPack
 					int indexNext = scrollValue > 0 ? inventory.GetNextIndex() : inventory.GetLastIndex();
 					//Get the current weapon's index.
 					int indexCurrent = inventory.GetEquippedIndex();
-					
+
 					//Make sure we're allowed to change, and also that we're not using the same index, otherwise weird things happen!
 					if (CanChangeWeapon() && (indexCurrent != indexNext))
 						StartCoroutine(nameof(Equip), indexNext);
