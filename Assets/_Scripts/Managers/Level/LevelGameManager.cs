@@ -62,7 +62,7 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
 
     private void HandleSpawningHeroes()
     {
-        LevelUnitManager.Instance.SpawnHeroes();
+        LevelUnitManager.Instance.SpawnPlayer();
 
         ChangeState(LevelGameState.SpawningEnemies);
     }

@@ -1,28 +1,32 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class LevelUnitManager : StaticInstance<LevelUnitManager>
 {
 
-    public void SpawnHeroes()
+    public void SpawnPlayer()
     {
-        SpawnUnit(ExampleHeroType.Tarodev, new Vector3(1, 0, 0));
+        SpawnUnit(0, Environment.Instance.PlayerSpawnPoint, Environment.Instance.PlayerParent);
     }
 
     public void SpawningEnemies()
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < Environment.Instance.EnemySpawnPoints.Count; i++)
+        {
+            int rand = UnityEngine.Random.Range(1, Environment.Instance.EnemySpawnPoints.Count);
+            SpawnUnit(rand, Environment.Instance.EnemySpawnPoints[i], Environment.Instance.EnemyParent);
+        }
     }
 
-    void SpawnUnit(ExampleHeroType t, Vector3 pos)
+    void SpawnUnit(int unitID, Transform transform, Transform transformParent)
     {
-        var tarodevScriptable = ResourceSystem.Instance.GetExampleHero(t);
+        var unit = ResourceSystem.Instance.GetExampleHero(unitID);
 
-        var spawned = Instantiate(tarodevScriptable.Prefab, pos, Quaternion.identity, transform);
+        var spawned = Instantiate(unit.Prefab, transform.position, transform.rotation, transformParent);
 
         // Apply possible modifications here such as potion boosts, team synergies, etc
-        var stats = tarodevScriptable.BaseStats;
-        stats.Health += 20;
+        var stats = unit.BaseStats;
 
         spawned.SetStats(stats);
     }

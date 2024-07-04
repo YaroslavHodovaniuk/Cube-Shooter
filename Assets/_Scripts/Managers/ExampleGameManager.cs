@@ -6,73 +6,73 @@ using UnityEngine;
 /// state machines. But this will serve just fine for most games.
 /// </summary>
 public class ExampleGameManager : StaticInstance<ExampleGameManager> {
-    public static event Action<GameState> OnBeforeStateChanged;
-    public static event Action<GameState> OnAfterStateChanged;
+    //public static event Action<GameState> OnBeforeStateChanged;
+    //public static event Action<GameState> OnAfterStateChanged;
 
-    public GameState State { get; private set; }
+    //public GameState State { get; private set; }
 
-    // Kick the game off with the first state
-    void Start() => ChangeState(GameState.Starting);
+    //// Kick the game off with the first state
+    //void Start() => ChangeState(GameState.Starting);
 
-    public void ChangeState(GameState newState) {
-        OnBeforeStateChanged?.Invoke(newState);
+    //public void ChangeState(GameState newState) {
+    //    OnBeforeStateChanged?.Invoke(newState);
 
-        State = newState;
-        switch (newState) {
-            case GameState.Starting:
-                HandleStarting();
-                break;
-            case GameState.SpawningHeroes:
-                HandleSpawningHeroes();
-                break;
-            case GameState.SpawningEnemies:
-                HandleSpawningEnemies();
-                break;
-            case GameState.HeroTurn:
-                HandleHeroTurn();
-                break;
-            case GameState.EnemyTurn:
-                break;
-            case GameState.Win:
-                break;
-            case GameState.Lose:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
-        }
+    //    State = newState;
+    //    switch (newState) {
+    //        case GameState.Starting:
+    //            HandleStarting();
+    //            break;
+    //        case GameState.SpawningHeroes:
+    //            HandleSpawningHeroes();
+    //            break;
+    //        case GameState.SpawningEnemies:
+    //            HandleSpawningEnemies();
+    //            break;
+    //        case GameState.HeroTurn:
+    //            HandleHeroTurn();
+    //            break;
+    //        case GameState.EnemyTurn:
+    //            break;
+    //        case GameState.Win:
+    //            break;
+    //        case GameState.Lose:
+    //            break;
+    //        default:
+    //            throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+    //    }
 
-        OnAfterStateChanged?.Invoke(newState);
+    //    OnAfterStateChanged?.Invoke(newState);
         
-        Debug.Log($"New state: {newState}");
-    }
+    //    Debug.Log($"New state: {newState}");
+    //}
 
-    private void HandleStarting() {
-        // Do some start setup, could be environment, cinematics etc
+    //private void HandleStarting() {
+    //    // Do some start setup, could be environment, cinematics etc
 
-        // Eventually call ChangeState again with your next state
+    //    // Eventually call ChangeState again with your next state
         
-        ChangeState(GameState.SpawningHeroes);
-    }
+    //    ChangeState(GameState.SpawningHeroes);
+    //}
 
-    private void HandleSpawningHeroes() {
-        ExampleUnitManager.Instance.SpawnHeroes();
+    //private void HandleSpawningHeroes() {
+    //    ExampleUnitManager.Instance.SpawnHeroes();
         
-        ChangeState(GameState.SpawningEnemies);
-    }
+    //    ChangeState(GameState.SpawningEnemies);
+    //}
 
-    private void HandleSpawningEnemies() {
+    //private void HandleSpawningEnemies() {
         
-        // Spawn enemies
+    //    // Spawn enemies
         
-        ChangeState(GameState.HeroTurn);
-    }
+    //    ChangeState(GameState.HeroTurn);
+    //}
 
-    private void HandleHeroTurn() {
-        // If you're making a turn based game, this could show the turn menu, highlight available units etc
+    //private void HandleHeroTurn() {
+    //    // If you're making a turn based game, this could show the turn menu, highlight available units etc
         
-        // Keep track of how many units need to make a move, once they've all finished, change the state. This could
-        // be monitored in the unit manager or the units themselves.
-    }
+    //    // Keep track of how many units need to make a move, once they've all finished, change the state. This could
+    //    // be monitored in the unit manager or the units themselves.
+    //}
 }
 
 /// <summary>
