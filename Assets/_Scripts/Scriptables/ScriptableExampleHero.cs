@@ -13,6 +13,7 @@ public class ScriptableExampleHero : ScriptableExampleUnitBase {
 [Serializable]
 public enum ExampleHeroType {
     Tarodev = 0,
-    Snorlax = 1
+    Snorlax = 1,
+    zombi,
 }
 
