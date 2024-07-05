@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Faction: 0
   _stats:
-    Health: 10
+    Health: 20
     AttackPower: 10
     TravelDistance: 10
+    MaxHealth: 20
   Prefab: {fileID: 8857541323221878197, guid: 691abe631cbbba549bf35031d81dfbf8, type: 3}
   Description: asd
   MenuSprite: {fileID: 0}

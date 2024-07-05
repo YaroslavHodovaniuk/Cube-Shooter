@@ -12,11 +12,11 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
 
     public void SpawningEnemies()
     {
-        for (int i = 0; i < Environment.Instance.EnemySpawnPoints.Count; i++)
-        {
-            int rand = UnityEngine.Random.Range(1, Environment.Instance.EnemySpawnPoints.Count);
-            SpawnUnit(rand, Environment.Instance.EnemySpawnPoints[i], Environment.Instance.EnemyParent);
-        }
+        //for (int i = 0; i < Environment.Instance.EnemySpawnPoints.Count; i++)
+        //{
+        //    int rand = UnityEngine.Random.Range(1, Environment.Instance.EnemySpawnPoints.Count);
+        //    SpawnUnit(rand, Environment.Instance.EnemySpawnPoints[i], Environment.Instance.EnemyParent);
+        //}
     }
 
     void SpawnUnit(int unitID, Transform transform, Transform transformParent)
@@ -29,5 +29,7 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
         var stats = unit.BaseStats;
 
         spawned.SetStats(stats);
+
+        Environment.Instance.RegisterUnit(unitID, spawned);
     }
 }

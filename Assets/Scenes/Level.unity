@@ -127,6 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 274516769}
+  - component: {fileID: 274516770}
   m_Layer: 0
   m_Name: Canvases
   m_TagString: Untagged
@@ -150,6 +151,24 @@ Transform:
   - {fileID: 2134071386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &274516770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274516768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bd74ba84b94cd4bbb9b189a5e89fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasPrefab: {fileID: 5393623835024644669, guid: 48d7771c50bd625489d38055025597a3,
+    type: 3}
+  qualitySettingsPrefab: {fileID: 5965040680208419700, guid: 458b1dae88c7baf46a163b218ce42a30,
+    type: 3}
+  _playerUIStats: {fileID: 8785922829897571774, guid: b58632a44d7d6b94095c95e30542a259,
+    type: 3}
 --- !u!1 &306587903
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +297,59 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &520319182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520319183}
+  - component: {fileID: 520319184}
+  m_Layer: 5
+  m_Name: HUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &520319183
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520319182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2134071386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &520319184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520319182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bd74ba84b94cd4bbb9b189a5e89fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasPrefab: {fileID: 5393623835024644669, guid: 48d7771c50bd625489d38055025597a3,
+    type: 3}
+  qualitySettingsPrefab: {fileID: 5965040680208419700, guid: 458b1dae88c7baf46a163b218ce42a30,
+    type: 3}
+  _playerUIStats: {fileID: 0}
 --- !u!1 &540534570
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +508,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1022012567}
-  - component: {fileID: 1022012568}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -461,18 +532,6 @@ Transform:
   - {fileID: 1596929545}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1022012568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022012566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c80d805e9fbd2f42824b7909fdc90f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1429392146
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +663,7 @@ GameObject:
   - component: {fileID: 1596929545}
   - component: {fileID: 1596929546}
   m_Layer: 0
-  m_Name: PlayerManager
+  m_Name: UnitsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -809,7 +868,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 520319183}
   m_Father: {fileID: 274516769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -26,10 +26,12 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         #region UNITY
 
-        protected override void Awake()
+        protected override void OnInitingUI(LevelGameState gameState)
         {
+            if (gameState != LevelGameState.InitUI)
+                return;
             //Base.
-            base.Awake();
+            base.OnInitingUI(gameState);
 
             //Enable the prompt by default.
             prompt.enabled = true;

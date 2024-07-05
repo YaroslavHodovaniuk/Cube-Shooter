@@ -14,7 +14,7 @@ public class ScriptableUnit : ScriptableObject {
     public Stats BaseStats => _stats;
 
     // Used in game
-    public HeroUnitBase Prefab;
+    public UnitBase Prefab;
     
     // Used in menus
     public string Description;
@@ -30,6 +30,8 @@ public struct Stats {
     public int Health;
     public int AttackPower;
     public int TravelDistance;
+
+    public int MaxHealth;
 }
 
 [Serializable]

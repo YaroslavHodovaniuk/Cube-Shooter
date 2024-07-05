@@ -2,6 +2,7 @@
 
 using TMPro;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 // ReSharper disable once CheckNamespace
 namespace InfimaGames.LowPolyShooterPack.Interface
@@ -46,10 +47,12 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// <summary>
         /// Awake.
         /// </summary>
-        protected override void Awake()
+        protected override void OnInitingUI(LevelGameState gameState)
         {
+            if (gameState != LevelGameState.InitUI)
+                return;
             //Base.
-            base.Awake();
+            base.OnInitingUI(gameState);
 
             //Cache Animator.
             animator = GetComponent<Animator>();

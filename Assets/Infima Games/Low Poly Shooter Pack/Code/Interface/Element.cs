@@ -29,16 +29,29 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// Equipped Weapon.
         /// </summary>
         protected WeaponBehaviour equippedWeaponBehaviour;
-        
+
+        private bool isInited = false;
+
         #endregion
 
         #region UNITY
+        /// <summary>
+        /// Start.
+        /// </summary>
+        
+        private void Start()
+        {
+            LevelGameManager.OnAfterStateChanged +=  OnInitingUI;
+        }
 
         /// <summary>
-        /// Awake.
+        /// Initing UI.
         /// </summary>
-        protected virtual void Awake()
+        protected virtual void OnInitingUI(LevelGameState gameState)
         {
+            if (gameState != LevelGameState.InitUI)
+                return;
+
             //Get Game Mode Service. Very useful to get Game Mode references.
             gameModeService = ServiceLocator.Current.Get<IGameModeService>();
             
@@ -53,15 +66,18 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// </summary>
         private void Update()
         {
-            //Ignore if we don't have an Inventory.
-            if (Equals(inventoryBehaviour, null))
-                return;
+            if (LevelGameManager.Instance.State == LevelGameState.GameInProgress)
+            {
+                //Ignore if we don't have an Inventory.
+                if (Equals(inventoryBehaviour, null))
+                    return;
 
-            //Get Equipped Weapon.
-            equippedWeaponBehaviour = inventoryBehaviour.GetEquipped();
-            
-            //Tick.
-            Tick();
+                //Get Equipped Weapon.
+                equippedWeaponBehaviour = inventoryBehaviour.GetEquipped();
+
+                //Tick.
+                Tick();
+            }
         }
 
         #endregion

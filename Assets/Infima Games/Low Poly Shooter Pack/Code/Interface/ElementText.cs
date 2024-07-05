@@ -22,10 +22,12 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         #region UNITY
 
-        protected override void Awake()
+        protected override void OnInitingUI(LevelGameState gameState)
         {
+            if (gameState != LevelGameState.InitUI)
+                return;
             //Base.
-            base.Awake();
+            base.OnInitingUI(gameState);
 
             //Get Text Mesh.
             textMesh = GetComponent<TextMeshProUGUI>();

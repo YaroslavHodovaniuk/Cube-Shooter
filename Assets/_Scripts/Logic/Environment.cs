@@ -8,7 +8,7 @@ public class Environment : StaticInstance<Environment>
     private List<Transform> enemySpawnPoints;
 
     private Level _level;
-    private Hero _character;
+    private HeroUnitBase _player;
     private List<EnemyUnitBase> _enemyUnits = new();
 
     public Transform PlayerParent => transform.GetChild(0).GetChild(0);
@@ -42,5 +42,20 @@ public class Environment : StaticInstance<Environment>
         }
     }
 
+    public HeroUnitBase Player => _player;
 
+    public void RegisterUnit(int index, UnitBase unit)
+    {
+        if (unit == null)
+            return;
+
+        if (index == 0)
+        {
+            _player = unit as HeroUnitBase;
+        }
+        else 
+        {
+            _enemyUnits.Add(unit as EnemyUnitBase);
+        }
+    }
 }

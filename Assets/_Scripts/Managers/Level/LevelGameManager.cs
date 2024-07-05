@@ -77,7 +77,7 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
 
     private void HandleInitUI()
     {
-
+        ChangeState(LevelGameState.GameInProgress);
     }
     private void HandleGameInProgress()
     {

@@ -13,14 +13,17 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         [Title(label: "Settings")]
         
-        [Tooltip("Canvas prefab spawned at start. Displays the player's user interface.")]
+        [Tooltip("Canvas prefab spawned at ui initing. Displays the player's user interface.")]
         [SerializeField]
         private GameObject canvasPrefab;
         
-        [Tooltip("Quality settings menu prefab spawned at start. Used for switching between different quality settings in-game.")]
+        [Tooltip("Quality settings menu prefab spawned at ui initing. Used for switching between different quality settings in-game.")]
         [SerializeField]
         private GameObject qualitySettingsPrefab;
 
+        [Tooltip("Quality settings menu prefab spawned at ui initing. Used for showing player stats in-game.")]
+        [SerializeField]
+        private GameObject _playerUIStats;
         #endregion
 
         #region UNITY
@@ -31,9 +34,11 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         private void Awake()
         {
             //Spawn Interface.
-            Instantiate(canvasPrefab);
+            Instantiate(canvasPrefab, transform);
             //Spawn Quality Settings Menu.
-            Instantiate(qualitySettingsPrefab);
+            Instantiate(qualitySettingsPrefab, transform);
+
+            Instantiate(_playerUIStats, transform);
         }
 
         #endregion
