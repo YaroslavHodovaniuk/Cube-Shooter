@@ -60,6 +60,12 @@ public class ShopCell : MonoBehaviour
             _buyButton.gameObject.SetActive(false);
             priceText.text = "";
         }
+        else
+        {
+            _equipButton.gameObject.SetActive(false);
+            _buyButton.gameObject.SetActive(true);
+            priceText.text = "";
+        }
     }
 
     private void OnEquipButtonPressed()
