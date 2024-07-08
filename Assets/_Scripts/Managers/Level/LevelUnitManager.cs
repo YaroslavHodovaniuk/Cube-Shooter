@@ -7,16 +7,15 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
 
     public void SpawnPlayer()
     {
-        SpawnUnit(0, Environment.Instance.PlayerSpawnPoint, Environment.Instance.PlayerParent);
+        SpawnUnit(1, Environment.Instance.PlayerSpawnPoint, Environment.Instance.PlayerParent);
     }
 
     public void SpawningEnemies()
     {
-        //for (int i = 0; i < Environment.Instance.EnemySpawnPoints.Count; i++)
-        //{
-        //    int rand = UnityEngine.Random.Range(1, Environment.Instance.EnemySpawnPoints.Count);
-        //    SpawnUnit(rand, Environment.Instance.EnemySpawnPoints[i], Environment.Instance.EnemyParent);
-        //}
+        for (int i = 0; i < Environment.Instance.EnemySpawnPoints.Count; i++)
+        {
+            SpawnUnit(0, Environment.Instance.EnemySpawnPoints[i], Environment.Instance.EnemyParent);
+        }
     }
 
     void SpawnUnit(int unitID, Transform transform, Transform transformParent)

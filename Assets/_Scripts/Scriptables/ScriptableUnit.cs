@@ -28,8 +28,12 @@ public class ScriptableUnit : ScriptableObject {
 [Serializable]
 public struct Stats {
     public int Health;
-    public int AttackPower;
     public int TravelDistance;
+
+    public int Damage;
+    public float AttackSpeed;
+    public float AttackDistance;
+    public float AngryDistance;
 
     public int MaxHealth;
 }

@@ -49,7 +49,7 @@ public class Environment : StaticInstance<Environment>
         if (unit == null)
             return;
 
-        if (index == 0)
+        if (index == 1)
         {
             _player = unit as HeroUnitBase;
         }
