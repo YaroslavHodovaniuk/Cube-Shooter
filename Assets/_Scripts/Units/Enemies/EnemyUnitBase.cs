@@ -7,8 +7,8 @@ public class EnemyUnitBase : UnitBase
 
     public void OnEnable()
     {
-        stateMachine = GetComponent<EnemyStateMachine>();
-        stateMachine.Init(this);
+        //stateMachine = GetComponent<EnemyStateMachine>();
+        //stateMachine.Init(this);
     }
 
     public void MoveToTarget(Transform target)

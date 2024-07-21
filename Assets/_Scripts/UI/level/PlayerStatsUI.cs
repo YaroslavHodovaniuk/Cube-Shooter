@@ -20,6 +20,6 @@ public class PlayerStatsUI : CanvasAlpha
     private void UpdateSlider(HeroUnitBase HeroUnitBase)
     {
         slider.value = (float)HeroUnitBase.Stats.Health / HeroUnitBase.Stats.MaxHealth;
-        Debug.Log(slider.value);
+        
     }
 }
