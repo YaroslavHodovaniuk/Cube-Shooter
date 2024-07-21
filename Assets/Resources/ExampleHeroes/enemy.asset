@@ -21,6 +21,6 @@ MonoBehaviour:
     AttackDistance: 1
     AngryDistance: 5
     MaxHealth: 20
-  Prefab: {fileID: 8370055210326436078, guid: 84ebf871a5faa5b479e0f4789126828c, type: 3}
+  Prefab: {fileID: 9041375939138863441, guid: 8dc8e1873d90afd48a8d9baf6a7ba2ad, type: 3}
   Description: 
   MenuSprite: {fileID: 0}
