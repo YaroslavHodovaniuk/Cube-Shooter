@@ -8021,7 +8021,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 51
-        y: 326
+        y: 102
         width: 131
         height: 16
       isBreakpoint: 0
@@ -8030,7 +8030,7 @@ MonoBehaviour:
       transitions: []
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.SetIntValue
+        - HutongGames.PlayMaker.Actions.SetFloatValue
         - HutongGames.PlayMaker.Actions.GetAnimatorBoneGameObject
         customNames:
         - 
@@ -8038,7 +8038,7 @@ MonoBehaviour:
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000003000000
-        actionHashCodes: 603dd905c986bc05
+        actionHashCodes: 9845b305c986bc05
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -8074,20 +8074,20 @@ MonoBehaviour:
           networkSync: 0
           enumName: UnityEngine.HumanBodyBones
           intValue: 8
-        fsmFloatParams: []
-        fsmIntParams:
+        fsmFloatParams:
         - useVariable: 1
           name: Health Points
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 100
-        - useVariable: 1
-          name: Health Points
+          value: 0
+        - useVariable: 0
+          name: 
           tooltip: 
-          showInInspector: 1
+          showInInspector: 0
           networkSync: 0
           value: 100
+        fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
@@ -8100,10 +8100,10 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 100000001000000001000000140000002a00000013000000
+        paramDataType: 0f0000000f00000001000000140000002a00000013000000
         paramName:
-        - intVariable
-        - intValue
+        - floatVariable
+        - floatValue
         - everyFrame
         - gameObject
         - bone
@@ -8115,8 +8115,8 @@ MonoBehaviour:
       colorIndex: 6
       position:
         serializedVersion: 2
-        x: 335
-        y: 453
+        x: 291
+        y: 357.8125
         width: 100
         height: 16
       isBreakpoint: 0
@@ -8385,8 +8385,8 @@ MonoBehaviour:
       colorIndex: 5
       position:
         serializedVersion: 2
-        x: 396
-        y: 114
+        x: 294.40625
+        y: 98.00781
         width: 100
         height: 32
       isBreakpoint: 0
@@ -8404,13 +8404,13 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.IntOperator
+        - HutongGames.PlayMaker.Actions.FloatOperator
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 14180903
+        actionHashCodes: 0cdb0405
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -8425,16 +8425,15 @@ MonoBehaviour:
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams:
+        fsmFloatParams:
         - useVariable: 1
           name: Health Points
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 100
+          value: 0
         - useVariable: 1
-          name: Damage Amount
+          name: DamageToApply
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -8444,7 +8443,8 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 100
+          value: 0
+        fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
@@ -8457,10 +8457,10 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1000000010000000070000001000000001000000
+        paramDataType: 0f0000000f000000070000000f00000001000000
         paramName:
-        - integer1
-        - integer2
+        - float1
+        - float2
         - operation
         - storeResult
         - everyFrame
@@ -8471,8 +8471,8 @@ MonoBehaviour:
       colorIndex: 3
       position:
         serializedVersion: 2
-        x: 325
-        y: 385
+        x: 281
+        y: 289.8125
         width: 125
         height: 32
       isBreakpoint: 0
@@ -8490,7 +8490,7 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.IntCompare
+        - HutongGames.PlayMaker.Actions.FloatCompare
         - HutongGames.PlayMaker.Actions.SendEventByName
         - HutongGames.PlayMaker.Actions.AnimatorPlay
         - HutongGames.PlayMaker.Actions.AudioPlayRandom
@@ -8501,8 +8501,8 @@ MonoBehaviour:
         - 
         actionEnabled: 01010101
         actionIsOpen: 01010101
-        actionStartIndex: 00000000060000000a0000000f000000
-        actionHashCodes: 09faa102ba7ea101c34b4105878e3302
+        actionStartIndex: 00000000070000000b00000010000000
+        actionHashCodes: 1bcdca04ba7ea101c34b4105878e3302
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -8606,6 +8606,24 @@ MonoBehaviour:
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams:
+        - useVariable: 1
+          name: Health Points
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         - useVariable: 0
           name: 
           tooltip: 
@@ -8650,18 +8668,6 @@ MonoBehaviour:
           value: 0.4
         fsmIntParams:
         - useVariable: 1
-          name: Health Points
-          tooltip: 
-          showInInspector: 1
-          networkSync: 0
-          value: 100
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
           name: 
           tooltip: 
           showInInspector: 0
@@ -8685,10 +8691,11 @@ MonoBehaviour:
         - HutongGames.PlayMaker.FsmFloat
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1000000010000000170000001700000017000000010000001f000000120000000f000000010000001400000012000000100000000f00000001000000140000000c000000180000001800000018000000180000000c0000000f0000000f0000000f0000000f0000000f00000017000000
+        paramDataType: 0f0000000f0000000f000000170000001700000017000000010000001f000000120000000f000000010000001400000012000000100000000f00000001000000140000000c000000180000001800000018000000180000000c0000000f0000000f0000000f0000000f0000000f00000017000000
         paramName:
-        - integer1
-        - integer2
+        - float1
+        - float2
+        - tolerance
         - equal
         - lessThan
         - greaterThan
@@ -8715,15 +8722,15 @@ MonoBehaviour:
         - 
         - volume
         - finishedEvent
-        paramDataPos: 00000000010000000000000001000000020000000000000000000000000000000000000001000000000000000100000002000000010000000200000001000000000000000000000001000000020000000300000001000000020000000300000004000000050000000600000003000000
-        paramByteDataSize: 00000000000000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        paramDataPos: 0000000001000000020000000000000001000000020000000000000000000000000000000300000001000000000000000100000000000000040000000200000001000000000000000000000001000000020000000300000001000000050000000600000007000000080000000900000003000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     - name: Explosion Damage
       description: 
       colorIndex: 5
       position:
         serializedVersion: 2
-        x: 559
-        y: 112
+        x: 482.21094
+        y: 271.20312
         width: 138
         height: 32
       isBreakpoint: 0
@@ -8741,15 +8748,15 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.IntOperator
         - HutongGames.PlayMaker.Actions.PoolerSpawn
+        - HutongGames.PlayMaker.Actions.FloatOperator
         customNames:
         - 
         - 
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 0000000005000000
-        actionHashCodes: 141809030dc4b101
+        actionHashCodes: 0dc4b1010cdb0405
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -8782,16 +8789,15 @@ MonoBehaviour:
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams:
+        fsmFloatParams:
         - useVariable: 1
           name: Health Points
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 100
+          value: 0
         - useVariable: 1
-          name: Damage Amount
+          name: DamageToApply
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -8801,7 +8807,8 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 100
+          value: 0
+        fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params:
@@ -8826,27 +8833,27 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 100000001000000007000000100000000100000012000000130000001c0000001c00000013000000
+        paramDataType: 12000000130000001c0000001c000000130000000f0000000f000000070000000f00000001000000
         paramName:
-        - integer1
-        - integer2
-        - operation
-        - storeResult
-        - everyFrame
         - NameOfThePool
         - spawnPoint
         - position
         - rotation
         - storeObject
-        paramDataPos: 00000000010000000000000002000000040000000000000000000000000000000100000001000000
-        paramByteDataSize: 00000000000000000400000000000000010000000000000000000000000000000000000000000000
+        - float1
+        - float2
+        - operation
+        - storeResult
+        - everyFrame
+        paramDataPos: 00000000000000000000000001000000010000000000000001000000000000000200000004000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000040000000000000001000000
     - name: Is Player Detected?
       description: 
       colorIndex: 7
       position:
         serializedVersion: 2
-        x: 369
-        y: 176
+        x: 267.40625
+        y: 160.00781
         width: 145
         height: 48
       isBreakpoint: 0
@@ -9030,8 +9037,8 @@ MonoBehaviour:
       colorIndex: 4
       position:
         serializedVersion: 2
-        x: 380
-        y: 240
+        x: 278.40625
+        y: 224.00781
         width: 123
         height: 32
       isBreakpoint: 0
@@ -9049,13 +9056,13 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.IntOperator
+        - HutongGames.PlayMaker.Actions.FloatOperator
         customNames:
         - 
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: 14180903
+        actionHashCodes: 0cdb0405
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -9070,16 +9077,15 @@ MonoBehaviour:
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams:
+        fsmFloatParams:
         - useVariable: 1
           name: Health Points
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 100
+          value: 0
         - useVariable: 1
-          name: Damage Amount
+          name: DamageToApply
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -9089,7 +9095,8 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 100
+          value: 0
+        fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
@@ -9102,10 +9109,10 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1000000010000000070000001000000001000000
+        paramDataType: 0f0000000f000000070000000f00000001000000
         paramName:
-        - integer1
-        - integer2
+        - float1
+        - float2
         - operation
         - storeResult
         - everyFrame
@@ -9150,20 +9157,32 @@ MonoBehaviour:
       linkTarget: 0
       colorIndex: 0
     variables:
-      floatVariables: []
-      intVariables:
-      - useVariable: 1
-        name: Damage Amount
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: 10
+      floatVariables:
       - useVariable: 1
         name: Health Points
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: 100
+        value: 0
+      - useVariable: 1
+        name: DamageToApply
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
+      intVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 0
       - useVariable: 1
         name: 
         tooltip: 
@@ -9210,7 +9229,7 @@ MonoBehaviour:
       categories:
       - 
       - '| DAMAGE'
-      variableCategoryIDs: 00000000000000000100000000000000000000000000000000000000
+      variableCategoryIDs: 0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -9228,7 +9247,7 @@ MonoBehaviour:
     ResetVariablesOnEnable: 0
     EnableDebugFlow: 0
     EnableBreakpoints: 1
-    editorFlags: 1
+    editorFlags: 33
     activeStateName: 
     mouseEvents: 0
     handleLevelLoaded: 0

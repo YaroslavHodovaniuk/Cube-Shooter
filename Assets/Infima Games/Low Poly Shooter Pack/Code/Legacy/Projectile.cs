@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections;
 using InfimaGames.LowPolyShooterPack;
 using Random = UnityEngine.Random;
+using System.Linq;
 
 namespace InfimaGames.LowPolyShooterPack.Legacy
 {
@@ -23,6 +24,8 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		[Tooltip("Maximum time after impact that the bullet is destroyed")]
 		public float maxDestroyTime;
 
+		private float _projectileDamage = 0;
+
 		[Header("Impact Effect Prefabs")]
 		public Transform[] bloodImpactPrefabs;
 
@@ -30,7 +33,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		public Transform[] dirtImpactPrefabs;
 		public Transform[] concreteImpactPrefabs;
 
-		private void Start()
+		public void Init(float projectileDamage)
 		{
 			//Grab the game mode service, we need it to access the player character!
 			var gameModeService = ServiceLocator.Current.Get<IGameModeService>();
@@ -40,7 +43,9 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 			//Start destroy timer
 			StartCoroutine(DestroyAfter());
-		}
+			_projectileDamage = projectileDamage; 
+
+        }
 
 		//If the bullet collides with anything
 		private void OnCollisionEnter(Collision collision)
@@ -68,8 +73,20 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				}
 				if (damageSystem != null)
 				{
-					damageSystem.SendEvent("Hit");
-					Debug.Log(damageSystem.Fsm.Variables.GetFsmInt("Health Points"));
+                    var floatVariables = damageSystem.FsmVariables.FloatVariables;
+                    var projectileDamageVariable = floatVariables.FirstOrDefault(f =>
+                    {
+                        return f.Name == "DamageToApply";
+                    });
+                    if (projectileDamageVariable != null)
+                    {
+                        projectileDamageVariable.Value = _projectileDamage;
+                    }
+                    else
+                    {
+                        Debug.LogError($"Variable {_projectileDamage} not found in FloatVariables.");
+                    }
+                    damageSystem.SendEvent("Hit");
 
                 }
                 Destroy(gameObject);

@@ -53,10 +53,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1981316428607364620}
     m_Modifications:
+    - target: {fileID: 311715146319078261, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 961917959833669568, guid: ba9432025d874624ab6394851fc6a94e,
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203191837357831097, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: damage
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2748913124992463393, guid: ba9432025d874624ab6394851fc6a94e,
         type: 3}
@@ -112,6 +122,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_LPSP_FP_CH
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709700336397351161, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870020829806626060, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: damage
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

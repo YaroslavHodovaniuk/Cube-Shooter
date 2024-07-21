@@ -1,5 +1,6 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using InfimaGames.LowPolyShooterPack.Legacy;
 using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
@@ -22,6 +23,10 @@ namespace InfimaGames.LowPolyShooterPack
         private float multiplierMovementSpeed = 1.0f;
         
         [Title(label: "Firing")]
+
+        [Tooltip("Damage)")]
+        [SerializeField]
+        private float damage = 1.0f;
 
         [Tooltip("Is this weapon automatic? If yes, then holding down the firing button will continuously fire.")]
         [SerializeField] 
@@ -450,6 +455,7 @@ namespace InfimaGames.LowPolyShooterPack
 
                 //Spawn projectile from the projectile spawn point.
                 GameObject projectile = Instantiate(prefabProjectile, playerCamera.position, Quaternion.Euler(playerCamera.eulerAngles + spreadValue));
+                projectile.GetComponent<Projectile>().Init(damage);
                 //Add velocity to the projectile.
                 projectile.GetComponent<Rigidbody>().linearVelocity = projectile.transform.forward * projectileImpulse;
             }

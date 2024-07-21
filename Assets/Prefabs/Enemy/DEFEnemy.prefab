@@ -273,6 +273,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7805478111514674997, guid: edaec3fbb2d18f340a1b524c4cd3f7bb,
+        type: 3}
+      propertyPath: fsm.editorFlags
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805478111514674997, guid: edaec3fbb2d18f340a1b524c4cd3f7bb,
+        type: 3}
+      propertyPath: fsm.variables.floatVariables.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805478111514674997, guid: edaec3fbb2d18f340a1b524c4cd3f7bb,
+        type: 3}
+      propertyPath: fsm.variables.floatVariables.Array.data[1].showInInspector
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7902867426181627668, guid: edaec3fbb2d18f340a1b524c4cd3f7bb,
         type: 3}
       propertyPath: m_TagString
