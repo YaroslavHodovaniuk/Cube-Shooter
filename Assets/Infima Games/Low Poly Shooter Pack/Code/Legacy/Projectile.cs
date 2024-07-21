@@ -48,20 +48,32 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			//Ignore collisions with other projectiles.
 			if (collision.gameObject.GetComponent<Projectile>() != null)
 				return;
-
+			Debug.Log(collision.gameObject.name);
 			// //Ignore collision if bullet collides with "Player" tag
-			// if (collision.gameObject.CompareTag("Player")) 
-			// {
-			// 	//Physics.IgnoreCollision (collision.collider);
-			// 	Debug.LogWarning("Collides with player");
-			// 	//Physics.IgnoreCollision(GetComponent<Collider>(), GetComponent<Collider>());
-			//
-			// 	//Ignore player character collision, otherwise this moves it, which is quite odd, and other weird stuff happens!
-			// 	Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
-			//
-			// 	//Return, otherwise we will destroy with this hit, which we don't want!
-			// 	return;
-			// }
+			if (collision.gameObject.CompareTag("Enemy"))
+			{
+				var FSMs = collision.gameObject.GetComponentsInParent<PlayMakerFSM>();
+                if (FSMs.Length == 0)
+                {
+                    Debug.LogWarning("No PlayMakerFSM components found in parent objects.");
+                }
+
+                PlayMakerFSM damageSystem = null;
+                for (int i = 0; i < FSMs.Length; i++)
+				{
+					if (FSMs[i].Fsm.Name == "Damage System")
+					{
+                        damageSystem = FSMs[i];
+                    }
+				}
+				if (damageSystem != null)
+				{
+					damageSystem.SendEvent("Hit");
+					Debug.Log(damageSystem.Fsm.Variables.GetFsmInt("Health Points"));
+
+                }
+                Destroy(gameObject);
+            }
 			//
 			//If destroy on impact is false, start 
 			//coroutine with random destroy timer
