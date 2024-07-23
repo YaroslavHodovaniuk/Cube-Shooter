@@ -53,7 +53,6 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			//Ignore collisions with other projectiles.
 			if (collision.gameObject.GetComponent<Projectile>() != null)
 				return;
-			Debug.Log(collision.gameObject.name);
 			// //Ignore collision if bullet collides with "Player" tag
 			if (collision.gameObject.CompareTag("Enemy"))
 			{

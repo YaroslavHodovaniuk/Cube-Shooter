@@ -1,9 +1,13 @@
 using InfimaGames.LowPolyShooterPack;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Environment : StaticInstance<Environment>
 {
+    private int _allSpawedEnemy = 0;
+    private int _currentEnemyAlive = 0;
+
     private Transform _playerSpawnPoint;
     private List<Transform> enemySpawnPoints;
 
@@ -11,8 +15,20 @@ public class Environment : StaticInstance<Environment>
     private HeroUnitBase _player;
     private List<EnemyUnitBase> _enemyUnits = new();
 
+    private UnityAction<int> AliveEnemyCountHasChenged;
+
     public Transform PlayerParent => transform.GetChild(0).GetChild(0);
     public Transform EnemyParent => this.transform.GetChild(0).GetChild(1).GetChild(0);
+
+    public int CurrentEnemyAlive 
+    {   
+        get => _currentEnemyAlive; 
+        private set
+        {
+            AliveEnemyCountHasChenged?.Invoke(value);
+            _currentEnemyAlive = value;
+        }
+    }
 
     public Transform PlayerSpawnPoint 
     {
@@ -44,18 +60,44 @@ public class Environment : StaticInstance<Environment>
 
     public HeroUnitBase Player => _player;
 
-    public void RegisterUnit(int index, UnitBase unit)
+    public void RegisterUnit(UnitBase unit)
     {
         if (unit == null)
             return;
 
-        if (index == 1)
+        if (unit.GetType() == typeof(HeroUnitBase))
         {
             _player = unit as HeroUnitBase;
         }
         else 
         {
-            _enemyUnits.Add(unit as EnemyUnitBase);
+            var enemy = unit as EnemyUnitBase;
+            _enemyUnits.Add(enemy);
+
+            enemy.DeathEvent += UnregisterUnit;
+
+            _allSpawedEnemy++;
+            CurrentEnemyAlive++;
+        }
+    }
+
+    public void UnregisterUnit(UnitBase unit) 
+    {
+        if (unit == null)
+            return;
+
+        if (unit.GetType() == typeof(HeroUnitBase))
+        {
+            _player = null;
+        }
+        else
+        {
+            var enemy = unit as EnemyUnitBase;
+            _enemyUnits.Remove(enemy);
+
+            enemy.DeathEvent -= UnregisterUnit;
+
+            CurrentEnemyAlive--;
         }
     }
 }

@@ -47,7 +47,6 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
 
         OnAfterStateChanged?.Invoke(newState);
 
-        Debug.Log($"New state: {newState}");
     }
 
     private void HandleStarting()
