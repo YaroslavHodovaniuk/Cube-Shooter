@@ -28,9 +28,6 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
             case LevelGameState.SpawningHero:
                 HandleSpawningHeroes();
                 break;
-            case LevelGameState.SpawningEnemies:
-                HandleSpawningEnemies();
-                break;
             case LevelGameState.GameInProgress:
                 HandleGameInProgress();
                 break; 
@@ -46,7 +43,6 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
         }
 
         OnAfterStateChanged?.Invoke(newState);
-
     }
 
     private void HandleStarting()
@@ -64,13 +60,6 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
     {
         LevelUnitManager.Instance.SpawnPlayer();
 
-        ChangeState(LevelGameState.SpawningEnemies);
-    }
-
-    private void HandleSpawningEnemies()
-    {
-        LevelUnitManager.Instance.SpawningEnemies();
-
         ChangeState(LevelGameState.InitUI);
     }
 
@@ -80,7 +69,7 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
     }
     private void HandleGameInProgress()
     {
-
+        LevelUnitManager.Instance.SpawningEnemies();
     }
 
 }
@@ -94,7 +83,6 @@ public enum LevelGameState
 {
     Starting = 0,
     SpawningHero = 1,    
-    SpawningEnemies = 2,
     InitUI = 3,
     GameInProgress = 4,
     Win = 5,

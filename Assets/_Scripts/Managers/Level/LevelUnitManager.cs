@@ -5,8 +5,9 @@ using UnityEngine;
 public class LevelUnitManager : StaticInstance<LevelUnitManager>
 {
 
-    [SerializeField] private int SpawnDelay;
-
+    [SerializeField] private int SpawnRateInWaveProgress;
+    [SerializeField] private int SpawnRateInWaveCooldown;
+    [Space]
     [SerializeField] private int WaveCount;
 
     public void SpawnPlayer()
@@ -16,6 +17,11 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
 
     public void SpawningEnemies()
     {
+        if (SpawnRateInWaveProgress <= 0 || SpawnRateInWaveCooldown <= 0)
+        {
+            Debug.LogWarning("SpawnRateInWaveProgress or SpawnRateInWaveCooldown less then zero");
+            return;
+        }
         StartCoroutine(SpawnEnemyWaveCaroutinre());
     }
 
@@ -39,11 +45,13 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
     {
         for (int i = 0; i < WaveCount; i++)
         {
-            for (int j = 0; j < Environment.Instance.EnemySpawnPoints.Count; j++)
-            {
-                var enemy = SpawnUnit(0, Environment.Instance.EnemySpawnPoints[j], Environment.Instance.EnemyParent);
-            }
-            yield return new WaitForSeconds(SpawnDelay);
+            var enemy = SpawnUnit(0, Environment.Instance.GetRandomEnemySpawnPoint(), Environment.Instance.EnemyParent);
+
+
+            if (WaveManager.Instance.CurrentState == WaveManager.WaveState.WaveInProgress)
+                yield return new WaitForSeconds(SpawnRateInWaveProgress);
+            else
+                yield return new WaitForSeconds(SpawnRateInWaveCooldown);
         }
     }
 }

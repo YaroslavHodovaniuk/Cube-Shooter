@@ -100,4 +100,10 @@ public class Environment : StaticInstance<Environment>
             CurrentEnemyAlive--;
         }
     }
+
+    public Transform GetRandomEnemySpawnPoint()
+    {
+        return EnemySpawnPoints[Random.Range(0, EnemySpawnPoints.Count)];   
+    }
+
 }
