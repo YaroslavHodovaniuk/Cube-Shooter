@@ -1,13 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelGameManager : StaticInstance<LevelGameManager>
 {
     private LevelData levelData;
     private Level _spawnedLevel;
 
-    public static event Action<LevelGameState> OnBeforeStateChanged;
-    public static event Action<LevelGameState> OnAfterStateChanged;
+    public static UnityAction<LevelGameState> OnBeforeStateChanged;
+    public static UnityAction<LevelGameState> OnAfterStateChanged;
 
     public LevelGameState State { get; private set; }
     public LevelData LevelData => levelData;
@@ -18,7 +19,7 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
     public void ChangeState(LevelGameState newState)
     {
         OnBeforeStateChanged?.Invoke(newState);
-
+        
         State = newState;
         switch (newState)
         {
@@ -70,6 +71,7 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
     private void HandleGameInProgress()
     {
         LevelUnitManager.Instance.SpawningEnemies();
+        WaveManager.Instance.StartWaveChangingProcess();
     }
 
 }

@@ -6,8 +6,8 @@ using UnityEngine;
 /// state machines. But this will serve just fine for most games.
 /// </summary>
 public class ExampleGameManager : StaticInstance<ExampleGameManager> {
-    //public static event Action<GameState> OnBeforeStateChanged;
-    //public static event Action<GameState> OnAfterStateChanged;
+    //public static event Action<GameState> OnBeforeWaveStateChanged;
+    //public static event Action<GameState> OnAfterWaveStateChanged;
 
     //public GameState State { get; private set; }
 
@@ -15,7 +15,7 @@ public class ExampleGameManager : StaticInstance<ExampleGameManager> {
     //void Start() => ChangeState(GameState.Starting);
 
     //public void ChangeState(GameState newState) {
-    //    OnBeforeStateChanged?.Invoke(newState);
+    //    OnBeforeWaveStateChanged?.Invoke(newState);
 
     //    State = newState;
     //    switch (newState) {
@@ -41,7 +41,7 @@ public class ExampleGameManager : StaticInstance<ExampleGameManager> {
     //            throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
     //    }
 
-    //    OnAfterStateChanged?.Invoke(newState);
+    //    OnAfterWaveStateChanged?.Invoke(newState);
         
     //    Debug.Log($"New state: {newState}");
     //}

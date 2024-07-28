@@ -26,29 +26,38 @@ public class WaveManager : StaticInstance<WaveManager>
     }
 
     public WaveState CurrentState { get; private set; }
+    public int WaveCount { get => _waveCount; private set => _waveCount = value; }
 
-    public static event Action<WaveState> OnBeforeStateChanged;
-    public static event Action<WaveState> OnAfterStateChanged;
+    public static event Action<WaveState> OnBeforeWaveStateChanged;
+    public static event Action<WaveState> OnAfterWaveStateChanged;
 
-    public void Start()
+    public void StartWaveChangingProcess()
     {
-        LevelGameManager.OnAfterStateChanged += StartWaveChangingProcess;
+        if (LevelGameManager.Instance.State != LevelGameState.GameInProgress)
+            return;
+
+        StartCoroutine(WaveCaroutine());
     }
 
-    private void StartWaveChangingProcess(LevelGameState gameState)
+    public float GetTimeToNextState()
     {
-        Debug.Log("qWE");
-        if (gameState == LevelGameState.InitUI)
-            StartCoroutine(WaveCaroutine());
+        if (CurrentState == WaveState.WaveInProgress)
+        {
+            return Mathf.Abs(Time.time - (_lastWaveStarted + _waveDuration));
+        }
+        else
+        {
+            return Mathf.Abs(Time.time - (_lastWaveEnded + _waveCooldown));
+        }
     }
+
     private IEnumerator WaveCaroutine()
     {
         while (LevelGameManager.Instance.State == LevelGameState.GameInProgress)
         {
-            Debug.Log("qWE");
-            if (_waveCount == 0)
+            if (WaveCount == 0)
             {
-                CurrentState = WaveState.WaveOnCooldown;
+                ChangeState(WaveState.WaveOnCooldown);
             }
 
             if (CurrentState == WaveState.WaveOnCooldown)
@@ -69,12 +78,13 @@ public class WaveManager : StaticInstance<WaveManager>
                     yield return new WaitForSeconds(_waveCooldown);
                 }
             }
+            yield return null;
         }
     }
     private void ChangeState(WaveState state)
     {
-        OnBeforeStateChanged?.Invoke(state);
-
+        OnBeforeWaveStateChanged?.Invoke(state);
+        CurrentState = state;
         switch (state)
         {
             case WaveState.WaveInProgress:
@@ -85,7 +95,7 @@ public class WaveManager : StaticInstance<WaveManager>
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
 
-        OnAfterStateChanged?.Invoke(state);
+        OnAfterWaveStateChanged?.Invoke(state);
     }
     private void StartWave()
     {
@@ -95,6 +105,6 @@ public class WaveManager : StaticInstance<WaveManager>
     private void EndWave()
     {
         _lastWaveEnded = Time.time;
-        _waveCount++;
+        WaveCount++;
     }
 }

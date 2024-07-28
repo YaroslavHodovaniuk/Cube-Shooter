@@ -24,6 +24,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [Tooltip("Quality settings menu prefab spawned at ui initing. Used for showing player stats in-game.")]
         [SerializeField]
         private GameObject _playerUIStats;
+
+        [SerializeField] private GameObject _waveInfo;
         #endregion
 
         #region UNITY
@@ -39,6 +41,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             Instantiate(qualitySettingsPrefab, transform);
 
             Instantiate(_playerUIStats, transform);
+
+            Instantiate(_waveInfo, transform);
         }
 
         #endregion
