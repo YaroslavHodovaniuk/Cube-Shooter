@@ -524,6 +524,7 @@ MonoBehaviour:
   _waveDuration: 30
   _waveCooldown: 10
   _lastWaveCount: 100
+  _isSpawnOnlyInWaveProgress: 0
 --- !u!1 &971459887
 GameObject:
   m_ObjectHideFlags: 0

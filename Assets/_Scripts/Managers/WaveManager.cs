@@ -14,6 +14,9 @@ public class WaveManager : StaticInstance<WaveManager>
     [Tooltip("Last wave count, then player win?")]
     [SerializeField] private int _lastWaveCount;
 
+    [Tooltip("Last wave count, then player win?")]
+    [SerializeField] private bool _isSpawnOnlyInWaveProgress;
+
     private float _lastWaveStarted = 0;
     private float _lastWaveEnded = 0;
 
@@ -27,6 +30,8 @@ public class WaveManager : StaticInstance<WaveManager>
 
     public WaveState CurrentState { get; private set; }
     public int WaveCount { get => _waveCount; private set => _waveCount = value; }
+
+    public bool IsSpawnOnlyInWaveProgress => _isSpawnOnlyInWaveProgress;
 
     public static event Action<WaveState> OnBeforeWaveStateChanged;
     public static event Action<WaveState> OnAfterWaveStateChanged;

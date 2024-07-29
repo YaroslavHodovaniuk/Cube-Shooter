@@ -45,13 +45,22 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
     {
         for (int i = 0; i < WaveCount; i++)
         {
-            var enemy = SpawnUnit(0, Environment.Instance.GetRandomEnemySpawnPoint(), Environment.Instance.EnemyParent);
-
-
             if (WaveManager.Instance.CurrentState == WaveManager.WaveState.WaveInProgress)
+            {
+                var enemy = SpawnUnit(0, Environment.Instance.GetRandomEnemySpawnPoint(), Environment.Instance.EnemyParent);
                 yield return new WaitForSeconds(SpawnRateInWaveProgress);
+            }
             else
-                yield return new WaitForSeconds(SpawnRateInWaveCooldown);
+            {
+                if (WaveManager.Instance.IsSpawnOnlyInWaveProgress)
+                {
+                    var enemy = SpawnUnit(0, Environment.Instance.GetRandomEnemySpawnPoint(), Environment.Instance.EnemyParent);
+                    yield return new WaitForSeconds(SpawnRateInWaveCooldown);
+                }   
+                else
+                    yield return null;
+            }
+                
         }
     }
 }

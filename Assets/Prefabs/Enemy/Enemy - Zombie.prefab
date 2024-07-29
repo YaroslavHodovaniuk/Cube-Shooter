@@ -8133,7 +8133,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 010101
-        actionIsOpen: 000001
+        actionIsOpen: 010001
         actionStartIndex: 000000000400000006000000
         actionHashCodes: ba7ea1015ac8520487aa9700
         unityObjectParams: []
@@ -9163,7 +9163,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: 0
+        value: 10
       - useVariable: 1
         name: DamageToApply
         tooltip: 
