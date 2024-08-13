@@ -13,9 +13,9 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         
         [Title(label: "References")]
 
-        [Tooltip("Canvas group to update the alpha for.")]
-        [SerializeField, NotNull]
-        private CanvasGroup canvasGroup;
+        //[Tooltip("Canvas group to update the alpha for.")]
+        //[SerializeField, NotNull]
+        //private CanvasGroup canvasGroup;
 
         [Title(label: "Settings")]
 
@@ -41,18 +41,18 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Base.
             base.Tick();
 
-            //Check References.
-            if (canvasGroup == null)
-            {
-                //ReferenceError.
-                Log.ReferenceError(this, gameObject);
+            ////Check References.
+            //if (canvasGroup == null)
+            //{
+            //    //ReferenceError.
+            //    Log.ReferenceError(this, gameObject);
                 
-                //Return.
-                return;
-            }
+            //    //Return.
+            //    return;
+            //}
 
             //Update Alpha.
-            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, characterBehaviour.IsCursorLocked() ? 1.0f : cursorUnlockedAlpha, Time.deltaTime * interpolationSpeed);
+            //canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, characterBehaviour.IsCursorLocked() ? 1.0f : cursorUnlockedAlpha, Time.deltaTime * interpolationSpeed);
         }
         
         #endregion

@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class Systems : PersistentSingleton<Systems>
 {
+    private LevelData levelData;
     public LevelData LevelData 
     {
         get 
         { 
-            return gameObject.GetComponentInChildren<LevelData>();
+            if (levelData == null)
+            {
+                levelData = gameObject.GetComponentInChildren<LevelData>();
+            }
+            return levelData;
         } 
     }
     public void StartLevel()
