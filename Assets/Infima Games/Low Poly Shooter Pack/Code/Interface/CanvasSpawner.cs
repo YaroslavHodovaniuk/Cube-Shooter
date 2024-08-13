@@ -7,7 +7,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
     /// <summary>
     /// Player Interface.
     /// </summary>
-    public class CanvasSpawner : MonoBehaviour
+    public class CanvasSpawner : StaticInstance<CanvasSpawner>
     {
         #region FIELDS SERIALIZED
 
@@ -16,16 +16,26 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [Tooltip("Canvas prefab spawned at ui initing. Displays the player's user interface.")]
         [SerializeField]
         private GameObject canvasPrefab;
+        private GameObject canvasPrefabInst;
         
         [Tooltip("Quality settings menu prefab spawned at ui initing. Used for switching between different quality settings in-game.")]
         [SerializeField]
         private GameObject qualitySettingsPrefab;
+        private GameObject qualitySettingsPrefabInst;
 
         [Tooltip("Quality settings menu prefab spawned at ui initing. Used for showing player stats in-game.")]
         [SerializeField]
         private GameObject _playerUIStats;
+        private GameObject _playerUIStatsInst;
 
         [SerializeField] private GameObject _waveInfo;
+        private GameObject _waveInfoInst;
+
+        [Tooltip("Quality settings menu prefab spawned at ui initing. Used for showing player stats in-game.")]
+        [SerializeField]
+        private GameObject EndGamePanel;
+        private GameObject EndGamePanelInst;
+
         #endregion
 
         #region UNITY
@@ -33,18 +43,40 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// <summary>
         /// Awake.
         /// </summary>
-        private void Awake()
+        public void OnUIInit()
         {
             //Spawn Interface.
-            Instantiate(canvasPrefab, transform);
+            canvasPrefabInst = Instantiate(canvasPrefab, transform);
             //Spawn Quality Settings Menu.
-            Instantiate(qualitySettingsPrefab, transform);
+            //qualitySettingsPrefabInst = Instantiate(qualitySettingsPrefab, transform);
 
-            Instantiate(_playerUIStats, transform);
+            _playerUIStatsInst = Instantiate(_playerUIStats, transform);
 
-            Instantiate(_waveInfo, transform);
+            _waveInfoInst = Instantiate(_waveInfo, transform);
+
+            LevelGameManager.OnAfterStateChanged += SetActiveEndGamePanel;
+            LevelGameManager.OnLevelDestroy += DestroyUI;
         }
 
+
+        private void SetActiveEndGamePanel(LevelGameState state)
+        {
+            if (state != LevelGameState.GameEnded)
+                return;
+
+            EndGamePanelInst =  Instantiate(EndGamePanel, transform);
+            EndGamePanelInst.SetActive(true);
+            EndGamePanelInst.GetComponent<EndGameViewPanel>().Init();
+        }
+
+        private void DestroyUI()
+        {
+            Destroy(canvasPrefabInst);
+            //Destroy(qualitySettingsPrefabInst);
+            Destroy(_playerUIStatsInst);
+            Destroy(_waveInfoInst);
+            Destroy(EndGamePanelInst);
+        }
         #endregion
     }
 }

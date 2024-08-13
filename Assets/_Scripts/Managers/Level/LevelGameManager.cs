@@ -1,3 +1,4 @@
+using InfimaGames.LowPolyShooterPack.Interface;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,8 +8,11 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
     private LevelData levelData;
     private Level _spawnedLevel;
 
+    private float _gameInProgressStartTime;
+
     public static UnityAction<LevelGameState> OnBeforeStateChanged;
     public static UnityAction<LevelGameState> OnAfterStateChanged;
+    public static UnityAction OnLevelDestroy;
 
     public LevelGameState State { get; private set; }
     public LevelData LevelData => levelData;
@@ -35,9 +39,8 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
             case LevelGameState.InitUI:
                 HandleInitUI();
                 break;
-            case LevelGameState.Win:
-                break;
-            case LevelGameState.Lose:
+            case LevelGameState.GameEnded:
+                HandleGameEnded();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -46,6 +49,10 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
         OnAfterStateChanged?.Invoke(newState);
     }
 
+    public float GetGameInProgressTimeDuration()
+    {
+        return Time.time - _gameInProgressStartTime;
+    }
     private void HandleStarting()
     {
         levelData = Systems.Instance.LevelData;
@@ -66,14 +73,25 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
 
     private void HandleInitUI()
     {
+        CanvasSpawner.Instance.OnUIInit();
+
         ChangeState(LevelGameState.GameInProgress);
     }
     private void HandleGameInProgress()
     {
+        Environment.Instance.Player.OnHeroDeath += OnPlayerDied;
+        _gameInProgressStartTime = Time.time;
         LevelUnitManager.Instance.SpawningEnemies();
         WaveManager.Instance.StartWaveChangingProcess();
     }
-
+    private void HandleGameEnded()
+    {
+        
+    }
+    private void OnPlayerDied(HeroUnitBase hero)
+    {
+        ChangeState(LevelGameState.GameEnded);
+    }
 }
 
 /// <summary>
@@ -87,6 +105,5 @@ public enum LevelGameState
     SpawningHero = 1,    
     InitUI = 3,
     GameInProgress = 4,
-    Win = 5,
-    Lose = 6,
+    GameEnded = 5,
 }

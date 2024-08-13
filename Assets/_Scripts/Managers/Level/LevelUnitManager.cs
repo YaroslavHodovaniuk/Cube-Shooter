@@ -10,6 +10,8 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
     [Space]
     [SerializeField] private int WaveCount;
 
+    private Coroutine _spawnCorotine;
+
     public void SpawnPlayer()
     {
         SpawnUnit(1, Environment.Instance.PlayerSpawnPoint, Environment.Instance.PlayerParent);
@@ -22,7 +24,8 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
             Debug.LogWarning("SpawnRateInWaveProgress or SpawnRateInWaveCooldown less then zero");
             return;
         }
-        StartCoroutine(SpawnEnemyWaveCaroutinre());
+        _spawnCorotine = StartCoroutine(SpawnEnemyWaveCaroutinre());
+        Environment.Instance.Player.OnHeroDeath += OnPlayerDied;
     }
 
     private UnitBase SpawnUnit(int unitID, Transform transform, Transform transformParent)
@@ -62,5 +65,12 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
             }
                 
         }
+    }
+
+    private void OnPlayerDied(HeroUnitBase hero)
+    {
+        StopCoroutine(_spawnCorotine);
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 }

@@ -35,6 +35,7 @@ public class EnemyUnitBase : UnitBase
                 if (state.Name == "Idle")
                 {
                     var onEnemyDeathAction = new UpdateGameLogicOnDeath(this);
+                    onEnemyDeathAction.OnEnemyDeath += (EnemyUnitBase enemy) => AddScoreOnDeath();
                     DeathEvent = onEnemyDeathAction.OnEnemyDeath;
                     // Convert the Actions list to a standard list if necessary
                     var actionsList = new List<FsmStateAction>(state.Actions);
@@ -45,12 +46,13 @@ public class EnemyUnitBase : UnitBase
             }
         }
     }
-    public void OnEnable()
-    {
-    }
-
     public void MoveToTarget(Transform target)
     {
 
+    }
+
+    private void AddScoreOnDeath()
+    {
+        Environment.Instance.Player.AddScore(Stats.Score);
     }
 }

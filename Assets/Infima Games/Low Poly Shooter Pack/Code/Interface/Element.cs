@@ -39,7 +39,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// Start.
         /// </summary>
         
-        private void Start()
+        private void OnEnable()
         {
             LevelGameManager.OnAfterStateChanged +=  OnInitingUI;
         }
@@ -66,8 +66,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// </summary>
         private void Update()
         {
-            if (LevelGameManager.Instance.State == LevelGameState.GameInProgress)
-            {
+        //    if (LevelGameManager.Instance.State == LevelGameState.GameInProgress)
+        //    {
                 //Ignore if we don't have an Inventory.
                 if (Equals(inventoryBehaviour, null))
                     return;
@@ -77,7 +77,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
                 //Tick.
                 Tick();
-            }
+            //}
         }
 
         #endregion

@@ -30,6 +30,8 @@ public struct Stats {
     public int Health;
     public int TravelDistance;
 
+    public int Score;
+
     public int Damage;
     public float AttackSpeed;
     public float AttackDistance;

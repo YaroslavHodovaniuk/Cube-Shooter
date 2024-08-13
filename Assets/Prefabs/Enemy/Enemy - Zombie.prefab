@@ -2658,7 +2658,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 01010101010101010101
-        actionIsOpen: 01010101010101010000
+        actionIsOpen: 00000000000000000000
         actionStartIndex: 0000000004000000070000000e00000011000000180000001a0000001f0000002c00000030000000
         actionHashCodes: 87aa970027fbe103d899af02f0eeac011bcdca045ac852046d528404878e3302ba7ea1015ac85204
         unityObjectParams: []
@@ -3652,7 +3652,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 010101010101
-        actionIsOpen: 010101010101
+        actionIsOpen: 000000000000
         actionStartIndex: 0000000005000000080000000a0000001300000020000000
         actionHashCodes: 6d528404f0eeac015ac852044e661301878e330248c01101
         unityObjectParams: []
@@ -5235,7 +5235,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 0101010101010101
-        actionIsOpen: 0001010101010101
+        actionIsOpen: 0000000000000000
         actionStartIndex: 00000000050000000c0000001400000030000000340000003a00000040000000
         actionHashCodes: 5b66cf005552ad05d5799805ab6a110377749f010c0e55028076870548c01101
         unityObjectParams: []
@@ -6571,7 +6571,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 010101010101010101
-        actionIsOpen: 000001010101010101
+        actionIsOpen: 000000000000000000
         actionStartIndex: 00000000070000000c000000130000001b000000370000003b0000004100000047000000
         actionHashCodes: 1bcdca045b66cf005552ad05d5799805ab6a110377749f010c0e55028076870548c01101
         unityObjectParams: []
@@ -8500,7 +8500,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 01010101
-        actionIsOpen: 01010101
+        actionIsOpen: 00000000
         actionStartIndex: 00000000070000000b00000010000000
         actionHashCodes: 1bcdca04ba7ea101c34b4105878e3302
         unityObjectParams: []
@@ -8611,7 +8611,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 0
+          value: 10
         - useVariable: 0
           name: 
           tooltip: 
@@ -8795,7 +8795,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 0
+          value: 10
         - useVariable: 1
           name: DamageToApply
           tooltip: 
@@ -8807,7 +8807,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 1
           networkSync: 0
-          value: 0
+          value: 10
         fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []

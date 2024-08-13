@@ -16,8 +16,6 @@ public abstract class UnitBase : MonoBehaviour {
 
     
     public virtual void TakeDamage(int dmg) {
-        var stats = Stats;
-        stats.Health -= dmg;
-        Stats = stats;
+        
     }
 }

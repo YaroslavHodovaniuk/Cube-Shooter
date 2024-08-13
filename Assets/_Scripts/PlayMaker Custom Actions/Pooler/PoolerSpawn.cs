@@ -40,6 +40,7 @@ namespace HutongGames.PlayMaker.Actions
         public override void OnEnter()
         {
             CurrentPool = NameOfThePool.Value;
+            Debug.Log(PoolerPool.current);
             GameObject pooledObject = PoolerPool.current.GetPooledObject(CurrentPool);
 
             if (pooledObject != null)

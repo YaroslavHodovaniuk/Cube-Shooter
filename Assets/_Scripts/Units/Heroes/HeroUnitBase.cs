@@ -9,20 +9,38 @@ public class HeroUnitBase : UnitBase {
 
     public UnityAction<HeroUnitBase> OnStatsUpdated;
 
+    public UnityAction<HeroUnitBase> OnHeroDeath;
+
     private PlayMakerFSM fsm;
 
     public override void SetStats(Stats stats)
     {
         base.SetStats(stats);
+
+        OnStatsUpdated += CheckIsDead;
+
         fsm = transform.GetChild(0).GetComponent<PlayMakerFSM>();
         InitFSM();
     }
 
     public override void TakeDamage(int dmg)
     {
-        Debug.Log("Taken damage: " + dmg);
-        base.TakeDamage(dmg);
-        OnStatsUpdated?.Invoke(this);
+        if (LevelGameManager.Instance.State == LevelGameState.GameInProgress)
+        {
+            var stats = Stats;
+            stats.Health -= dmg;
+            Stats = stats;
+            Debug.Log("Taken damage: " + dmg);
+
+            OnStatsUpdated?.Invoke(this);
+        }
+    }
+
+    public void AddScore(int score)
+    {
+        var stat = Stats;
+        stat.Score += score; 
+        Stats = stat;
     }
 
     private void InitFSM()
@@ -85,6 +103,26 @@ public class HeroUnitBase : UnitBase {
             return;
         }
         TakeDamage(fsmDamageAmount.Value);
+    }
+
+    private void CheckIsDead(HeroUnitBase hero)
+    {
+        if (hero == null)
+        {
+            Debug.Log("CheckIsDead hero is null");
+            return ;
+        }
+
+        if (hero.Stats.Health <= 0)
+        {
+            hero.OnHeroDeath?.Invoke(hero);
+        }
+    }
+
+    public void UpdateMoneyCountOnDeath(int val)
+    {
+        int prevValue = PlayerPrefs.GetInt("PlayerBalance");
+        PlayerPrefs.SetInt("PlayerBalance", prevValue + val);
     }
 }
 
