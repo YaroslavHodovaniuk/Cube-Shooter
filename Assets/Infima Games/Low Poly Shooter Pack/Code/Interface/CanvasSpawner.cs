@@ -11,31 +11,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
     {
         #region FIELDS SERIALIZED
 
-        [Title(label: "Settings")]
-        
-        [Tooltip("Canvas prefab spawned at ui initing. Displays the player's user interface.")]
-        [SerializeField]
-        private GameObject canvasPrefab;
-        private GameObject canvasPrefabInst;
-        
-        [Tooltip("Quality settings menu prefab spawned at ui initing. Used for switching between different quality settings in-game.")]
-        [SerializeField]
-        private GameObject qualitySettingsPrefab;
-        private GameObject qualitySettingsPrefabInst;
-
-        [Tooltip("Quality settings menu prefab spawned at ui initing. Used for showing player stats in-game.")]
-        [SerializeField]
-        private GameObject _playerUIStats;
-        private GameObject _playerUIStatsInst;
-
-        [SerializeField] private GameObject _waveInfo;
-        private GameObject _waveInfoInst;
-
-        [Tooltip("Quality settings menu prefab spawned at ui initing. Used for showing player stats in-game.")]
-        [SerializeField]
-        private GameObject EndGamePanel;
-        private GameObject EndGamePanelInst;
-
+        [SerializeField] private GameObject _endGamePanel;
+       
         #endregion
 
         #region UNITY
@@ -45,17 +22,9 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// </summary>
         public void OnUIInit()
         {
-            //Spawn Interface.
-            canvasPrefabInst = Instantiate(canvasPrefab, transform);
-            //Spawn Quality Settings Menu.
-            //qualitySettingsPrefabInst = Instantiate(qualitySettingsPrefab, transform);
-
-            _playerUIStatsInst = Instantiate(_playerUIStats, transform);
-
-            _waveInfoInst = Instantiate(_waveInfo, transform);
+            _endGamePanel.SetActive(false);
 
             LevelGameManager.OnAfterStateChanged += SetActiveEndGamePanel;
-            LevelGameManager.OnLevelDestroy += DestroyUI;
         }
 
 
@@ -64,18 +33,11 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             if (state != LevelGameState.GameEnded)
                 return;
 
-            EndGamePanelInst =  Instantiate(EndGamePanel, transform);
-            EndGamePanelInst.SetActive(true);
-            EndGamePanelInst.GetComponent<EndGameViewPanel>().Init();
+            _endGamePanel.GetComponent<EndGameViewPanel>().Init();
+            _endGamePanel.SetActive(true);
         }
-
-        private void DestroyUI()
-        {
-            Destroy(canvasPrefabInst);
-            //Destroy(qualitySettingsPrefabInst);
-            Destroy(_playerUIStatsInst);
-            Destroy(_waveInfoInst);
-            Destroy(EndGamePanelInst);
+        private void OnDestroy() {
+            LevelGameManager.OnAfterStateChanged -= SetActiveEndGamePanel;
         }
         #endregion
     }

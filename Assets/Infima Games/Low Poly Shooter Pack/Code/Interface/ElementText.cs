@@ -30,7 +30,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             base.OnInitingUI(gameState);
 
             //Get Text Mesh.
-            textMesh = GetComponent<TextMeshProUGUI>();
+            textMesh = gameObject.GetComponent<TextMeshProUGUI>();
         }
 
         #endregion

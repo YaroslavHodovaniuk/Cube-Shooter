@@ -43,7 +43,10 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         {
             LevelGameManager.OnAfterStateChanged +=  OnInitingUI;
         }
-
+        private void OnDisable()
+        {
+            LevelGameManager.OnAfterStateChanged -= OnInitingUI;
+        }
         /// <summary>
         /// Initing UI.
         /// </summary>
