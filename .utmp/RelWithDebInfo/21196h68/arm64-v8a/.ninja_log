@@ -1,0 +1,10 @@
+# ninja log v5
+13	714	7452669867878474	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	b82543a25400ee71
+0	734	7452669868109968	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	22e33422c5a22f51
+28	744	7452669868210489	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	59578b39a30b69a4
+18	766	7452669868409667	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	2a0b16b5bbe225c1
+33	798	7452669868714932	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	baffa9f424a5060f
+5	833	7452669869099603	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	d3eb00d34ba85e8f
+23	945	7452669870228618	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	6137c9dd619796ff
+9	1019	7452669870950258	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	6e862df4334ad866
+1019	1108	7452669871835754	C:/PersonalProjects/Cube-Shooter/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/21196h68/obj/arm64-v8a/libgame.so	5382a3c6fda6f31b

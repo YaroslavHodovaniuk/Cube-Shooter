@@ -163,6 +163,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   androidMinAspectRatio: 1
   applicationIdentifier:
+    Android: com.DefaultCompany.CubeShooter
     Standalone: com.DefaultCompany.Cube-Shooter
   buildNumber:
     Standalone: 0
@@ -485,7 +486,7 @@ PlayerSettings:
     m_StaticBatching: 1
     m_DynamicBatching: 0
   - m_BuildTarget: Android
-    m_StaticBatching: 1
+    m_StaticBatching: 0
     m_DynamicBatching: 0
   - m_BuildTarget: iPhone
     m_StaticBatching: 1
@@ -559,7 +560,10 @@ PlayerSettings:
   m_BuildTargetGroupLightmapSettings: []
   m_BuildTargetGroupLoadStoreDebugModeSettings: []
   m_BuildTargetNormalMapEncoding: []
-  m_BuildTargetDefaultTextureCompressionFormat: []
+  m_BuildTargetDefaultTextureCompressionFormat:
+  - serializedVersion: 3
+    m_BuildTarget: Android
+    m_Formats: 01000000
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1
@@ -825,7 +829,7 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: UNITY_POST_PROCESSING_STACK_V2;PLAYMAKER;PLAYMAKER_1_9;PLAYMAKER_1_9_8;PLAYMAKER_1_8_OR_NEWER;PLAYMAKER_1_8_5_OR_NEWER;PLAYMAKER_1_9_OR_NEWER
+    Android: UNITY_POST_PROCESSING_STACK_V2;PLAYMAKER;PLAYMAKER_1_9;PLAYMAKER_1_9_8;PLAYMAKER_1_8_OR_NEWER;PLAYMAKER_1_8_5_OR_NEWER;PLAYMAKER_1_9_OR_NEWER;PLAYMAKER_TMPRO
     EmbeddedLinux: UNITY_POST_PROCESSING_STACK_V2;PLAYMAKER;PLAYMAKER_1_9;PLAYMAKER_1_9_8;PLAYMAKER_1_8_OR_NEWER;PLAYMAKER_1_8_5_OR_NEWER;PLAYMAKER_1_9_OR_NEWER
     GameCoreXboxOne: UNITY_POST_PROCESSING_STACK_V2;PLAYMAKER;PLAYMAKER_1_9;PLAYMAKER_1_9_8;PLAYMAKER_1_8_OR_NEWER;PLAYMAKER_1_8_5_OR_NEWER;PLAYMAKER_1_9_OR_NEWER
     Nintendo Switch: UNITY_POST_PROCESSING_STACK_V2;PLAYMAKER;PLAYMAKER_1_9;PLAYMAKER_1_9_8;PLAYMAKER_1_8_OR_NEWER;PLAYMAKER_1_8_5_OR_NEWER;PLAYMAKER_1_9_OR_NEWER
@@ -876,7 +880,7 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Cube-Shooter
-  metroPackageVersion: 
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -884,7 +888,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Cube-Shooter
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Cube Shooter
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
