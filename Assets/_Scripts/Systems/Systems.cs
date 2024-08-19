@@ -1,4 +1,5 @@
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 /// <summary>
 /// Don't specifically need anything here other than the fact it's persistent.
@@ -6,15 +7,12 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class Systems : PersistentSingleton<Systems>
 {
-    private LevelData levelData;
+    [SerializeField] private LevelData levelData;
+
     public LevelData LevelData 
     {
         get 
         { 
-            if (levelData == null)
-            {
-                levelData = gameObject.GetComponentInChildren<LevelData>();
-            }
             return levelData;
         } 
     }

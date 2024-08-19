@@ -10,9 +10,6 @@ public class ShopCell : MonoBehaviour
     [SerializeField] private Button _buyButton;
     [SerializeField] private Button _equipButton;
 
-    [SerializeField] private Sprite _equipedSprite;
-    [SerializeField] private Sprite _unequipedSprite;
-
     private int _index;
     public void Init(Sprite Icon, int index)   //add icon, not GameObject
     {
@@ -44,7 +41,7 @@ public class ShopCell : MonoBehaviour
 
         Shop.Instance.CurrentEquipedWeaponHasChanged += ChangeEquipButtonByShop;
         CheckIsPurchased();
-        TrySetEquiped();
+        ChangeEquipButtonByShop();
     }
 
     private void OnBuyButtonPressed()
@@ -98,13 +95,10 @@ public class ShopCell : MonoBehaviour
         if (key)
         {
             _equipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Equiped";
-
-            _equipButton.GetComponent<Image>().sprite = _equipedSprite;
         }
         else
         {
             _equipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Equip";
-            _equipButton.GetComponent<Image>().sprite = _unequipedSprite;
         }
     }
 }

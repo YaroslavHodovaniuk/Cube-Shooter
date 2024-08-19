@@ -15,7 +15,7 @@ public class Shop : Singleton<Shop>
 
     private Dictionary<int, int> _weaponPrices = new Dictionary<int, int>()
     {
-        { 0, 2000 }, 
+        { 0, 0 }, 
         { 1, 2000 }, 
         { 2, 25000 }, 
         { 3, 30000 }, 
@@ -55,6 +55,7 @@ public class Shop : Singleton<Shop>
 
     private void OnEnable()
     {
+        
         OnStartLevel += TraslateDataToSystems;
     }
     private void OnDisable() 
@@ -64,9 +65,10 @@ public class Shop : Singleton<Shop>
     private void Start()
     {
         CurrentEquipedWeaponIndex = _defaultEquipedWeaponIndex;
+
         // Загрузка баланса игрока из PlayerPrefs
         PlayerBalance = PlayerPrefs.GetInt("PlayerBalance", 100000); // Начальный баланс - 1000 монет
-        
+        PurchaseWeapon(0);
     }
 
     public void PurchaseWeapon(int index)
@@ -74,10 +76,11 @@ public class Shop : Singleton<Shop>
         if (PlayerBalance >= _weaponPrices[index])
         {
             PlayerBalance -= _weaponPrices[index];
+
             PlayerPrefs.SetInt("PlayerBalance", PlayerBalance);
             PlayerPrefs.SetInt(index.ToString(), 1); // Сохранение покупки 
 
-            Debug.Log($"weapon {index} purchased!");
+            TryEquipWeapon(index);
         }
         else
         {
@@ -115,6 +118,7 @@ public class Shop : Singleton<Shop>
 
     private void TraslateDataToSystems()
     {
-        Systems.Instance.LevelData.ChoosedWeaponID = _currentEquipedWeaponIndex;
+       
+        Systems.Instance.LevelData.ChoosedWeaponID = CurrentEquipedWeaponIndex;
     }
 }
