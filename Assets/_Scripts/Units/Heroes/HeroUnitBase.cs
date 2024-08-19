@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class HeroUnitBase : UnitBase {
 
     public UnityAction<HeroUnitBase> OnStatsUpdated;
+    public UnityAction<HeroUnitBase> OnDamageTaken;
 
     public UnityAction<HeroUnitBase> OnHeroDeath;
 
@@ -31,7 +32,7 @@ public class HeroUnitBase : UnitBase {
             stats.Health -= dmg;
             Stats = stats;
             Debug.Log("Taken damage: " + dmg);
-
+            OnDamageTaken?.Invoke(this);
             OnStatsUpdated?.Invoke(this);
         }
     }

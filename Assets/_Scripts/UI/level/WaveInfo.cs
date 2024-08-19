@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class WaveInfo : CanvasAlpha
 {
-    [Title(label: "Fields")]
+    [Title(label: "Counter")]
     [SerializeField] private TextMeshProUGUI _textWaveCounter;
-
     [SerializeField] private TextMeshProUGUI _textTimeToNextStage;
+
+    [Title(label: "Counter")]
+    [SerializeField] private Animator _waveStartedTipAnimator;
+    [SerializeField] private Animator _waveEndedTipAnimator;
+
 
     private float timeToNextStage;
 
@@ -24,13 +28,21 @@ public class WaveInfo : CanvasAlpha
 
     private void UpdateTimeToNextStage()
     {
-        _textTimeToNextStage.text = "Remaning :" + WaveManager.Instance.GetTimeToNextState();
+        if (LevelGameManager.Instance.State != LevelGameState.GameInProgress)
+            return;
+
+        _textTimeToNextStage.text = "Remaning :" + WaveManager.Instance.GetTimeToNextState().ToString().ToLower();
     }
     private void OnWaveStageChange(WaveManager.WaveState state)
     {
         if (state == WaveManager.WaveState.WaveInProgress)
         {
+            _waveStartedTipAnimator.SetTrigger("WaveStarted");
             _textWaveCounter.text = "Wave: " + WaveManager.Instance.WaveCount;
+        }
+        else if (state == WaveManager.WaveState.WaveOnCooldown)
+        {
+            _waveEndedTipAnimator.SetTrigger("WaveEnded");
         }
     }
 }
