@@ -628,7 +628,7 @@ MonoBehaviour:
   _waveDuration: 30
   _waveCooldown: 10
   _lastWaveCount: 100
-  _isSpawnOnlyInWaveProgress: 1
+  _isSpawnOnlyInWaveProgress: 0
 --- !u!1 &971459887
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,6 +825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4109cb15ea238264d94698499e67b671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpawnedEnemy: 20
 --- !u!1001 &1713582399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1088,22 +1089,22 @@ PrefabInstance:
     - target: {fileID: 5034481099176465715, guid: 2c3d6546efaf3d94f818b8b6fda745b5,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034481099176465715, guid: 2c3d6546efaf3d94f818b8b6fda745b5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034481099176465715, guid: 2c3d6546efaf3d94f818b8b6fda745b5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034481099176465715, guid: 2c3d6546efaf3d94f818b8b6fda745b5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5071236185497584692, guid: 2c3d6546efaf3d94f818b8b6fda745b5,
         type: 3}

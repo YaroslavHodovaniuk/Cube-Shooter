@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Environment : StaticInstance<Environment>
 {
+    [SerializeField] private int maxSpawnedEnemy;
+
     private int _allSpawedEnemy = 0;
     private int _currentEnemyAlive = 0;
 
@@ -59,6 +61,8 @@ public class Environment : StaticInstance<Environment>
     }
 
     public HeroUnitBase Player => _player;
+
+    public int MaxSpawnedEnemy { get => maxSpawnedEnemy; }
 
     public void RegisterUnit(UnitBase unit)
     {

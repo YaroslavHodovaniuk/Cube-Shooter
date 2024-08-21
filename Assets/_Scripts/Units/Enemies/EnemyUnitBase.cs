@@ -36,7 +36,8 @@ public class EnemyUnitBase : UnitBase
                 {
                     var onEnemyDeathAction = new UpdateGameLogicOnDeath(this);
                     onEnemyDeathAction.OnEnemyDeath += (EnemyUnitBase enemy) => AddScoreOnDeath();
-                    DeathEvent = onEnemyDeathAction.OnEnemyDeath;
+                    onEnemyDeathAction.OnEnemyDeath += (EnemyUnitBase enemy) => InvokeDeathEvent();
+                    
                     // Convert the Actions list to a standard list if necessary
                     var actionsList = new List<FsmStateAction>(state.Actions);
                     actionsList.Add(onEnemyDeathAction);
@@ -46,11 +47,10 @@ public class EnemyUnitBase : UnitBase
             }
         }
     }
-    public void MoveToTarget(Transform target)
+    private void InvokeDeathEvent()
     {
-
+        DeathEvent?.Invoke(this);
     }
-
     private void AddScoreOnDeath()
     {
         Environment.Instance.Player.AddScore(Stats.Score);

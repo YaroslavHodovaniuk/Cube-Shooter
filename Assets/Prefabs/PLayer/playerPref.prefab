@@ -62,6 +62,31 @@ PrefabInstance:
       propertyPath: damage
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 674183138145014876, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: gripIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674183138145014876, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: laserIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674183138145014876, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: scopeIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674183138145014876, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: muzzleIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674183138145014876, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: magazineIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 961917959833669568, guid: ba9432025d874624ab6394851fc6a94e,
         type: 3}
       propertyPath: m_TagString
@@ -127,6 +152,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_LPSP_FP_CH
       objectReference: {fileID: 0}
+    - target: {fileID: 3215491953047844861, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: gripIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215491953047844861, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: laserIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215491953047844861, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: muzzleIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215491953047844861, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: magazineIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3587661670009319852, guid: ba9432025d874624ab6394851fc6a94e,
         type: 3}
       propertyPath: m_IsTrigger
@@ -141,6 +186,31 @@ PrefabInstance:
         type: 3}
       propertyPath: damage
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238705052067929884, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: gripIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238705052067929884, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: laserIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238705052067929884, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: scopeIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238705052067929884, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: muzzleIndexRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238705052067929884, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: magazineIndexRandom
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8870020829806626060, guid: ba9432025d874624ab6394851fc6a94e,
         type: 3}

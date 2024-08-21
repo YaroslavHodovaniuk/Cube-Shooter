@@ -30,6 +30,9 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
 
     private UnitBase SpawnUnit(int unitID, Transform transform, Transform transformParent)
     {
+        if (Environment.Instance.MaxSpawnedEnemy <= Environment.Instance.CurrentEnemyAlive)
+            return null;
+
         var unit = ResourceSystem.Instance.GetExampleHero(unitID);
 
         var spawned = Instantiate(unit.Prefab, transform.position, transform.rotation, transformParent);
@@ -55,7 +58,7 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
             }
             else
             {
-                if (WaveManager.Instance.IsSpawnOnlyInWaveProgress)
+                if (!WaveManager.Instance.IsSpawnOnlyInWaveProgress)
                 {
                     var enemy = SpawnUnit(0, Environment.Instance.GetRandomEnemySpawnPoint(), Environment.Instance.EnemyParent);
                     yield return new WaitForSeconds(SpawnRateInWaveCooldown);
