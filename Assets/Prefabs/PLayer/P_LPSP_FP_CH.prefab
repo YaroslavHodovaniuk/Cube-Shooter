@@ -1087,6 +1087,7 @@ MonoBehaviour:
   grenadePrefab: {fileID: 1948591290861370, guid: 7b04fe350ed10a741a1e245447860d9e,
     type: 3}
   knife: {fileID: 7447013278991314036}
+  meeleDamage: 200
   cameraWorld: {fileID: 916095938892669238}
   cameraDepth: {fileID: 6408767160419437801}
   dampTimeTurning: 0.4
@@ -3441,7 +3442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3681108526964167273
 Transform:
   m_ObjectHideFlags: 0
@@ -3464,7 +3465,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6940384052277386700}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -10632,7 +10633,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 16e474626b69d024f8bf7c812763932a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8571585947618754502}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 16e474626b69d024f8bf7c812763932a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3587661670009319852}
   m_SourcePrefab: {fileID: 100100000, guid: 16e474626b69d024f8bf7c812763932a, type: 3}
 --- !u!4 &7447013278991216724 stripped
 Transform:
@@ -10646,3 +10655,44 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7447013278991346388}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8571585947618754502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7447013278991314036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ff3ea705a4a7244a59eef82e75c660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfter: 1
+  destroyOnImpact: 0
+  minDestroyTime: 0
+  maxDestroyTime: 0
+  bloodImpactPrefabs: []
+  metalImpactPrefabs: []
+  dirtImpactPrefabs: []
+  concreteImpactPrefabs: []
+--- !u!65 &3587661670009319852
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7447013278991314036}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.011723105, y: 0.2859827, z: 0.06712606}
+  m_Center: {x: 0.00000020208067, y: -0.012893895, z: 0.0060420334}

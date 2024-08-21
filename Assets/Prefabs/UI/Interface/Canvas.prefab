@@ -473,6 +473,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveInfo
       objectReference: {fileID: 0}
+    - target: {fileID: 5186879997336607717, guid: eae7c3db8c79cbe45ac8bf21860fb7ef,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186879997336607717, guid: eae7c3db8c79cbe45ac8bf21860fb7ef,
+        type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186879997336607717, guid: eae7c3db8c79cbe45ac8bf21860fb7ef,
+        type: 3}
+      propertyPath: m_IgnoreParentGroups
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

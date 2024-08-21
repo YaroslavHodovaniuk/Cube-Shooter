@@ -56,6 +56,10 @@ public class WaveManager : StaticInstance<WaveManager>
         }
     }
 
+    private void OnDestroy()
+    {
+        OnAfterWaveStateChanged = null;
+    }
     private IEnumerator WaveCaroutine()
     {
         while (LevelGameManager.Instance.State == LevelGameState.GameInProgress)
@@ -63,11 +67,12 @@ public class WaveManager : StaticInstance<WaveManager>
             if (WaveCount == 0)
             {
                 ChangeState(WaveState.WaveOnCooldown);
+                yield return new WaitForSeconds(_waveCooldown);
             }
 
             if (CurrentState == WaveState.WaveOnCooldown)
             {
-                if (Time.time - _lastWaveEnded >= _waveCooldown)
+                if (Time.time - _lastWaveEnded > _waveCooldown)
                 {
                     ChangeState(WaveState.WaveInProgress);
                     Debug.Log("WaveInProgress");
@@ -76,7 +81,7 @@ public class WaveManager : StaticInstance<WaveManager>
             }
             else if (CurrentState == WaveState.WaveInProgress)
             {
-                if (Time.time - _lastWaveStarted >= _waveDuration)
+                if (Time.time - _lastWaveStarted > _waveDuration)
                 {
                     ChangeState(WaveState.WaveOnCooldown);
                     Debug.Log("WaveOnCooldown");

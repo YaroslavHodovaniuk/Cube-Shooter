@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
+using InfimaGames.LowPolyShooterPack.Legacy;
 
 namespace InfimaGames.LowPolyShooterPack
 {
@@ -47,8 +48,11 @@ namespace InfimaGames.LowPolyShooterPack
 		[Tooltip("Grenade spawn offset from the character's camera.")]
 		[SerializeField]
 		private float grenadeSpawnOffset = 1.0f;
-		
-		[Tooltip("Grenade Prefab. Spawned when throwing a grenade.")]
+
+        [SerializeField]
+        private float grenadeDamage;
+
+        [Tooltip("Grenade Prefab. Spawned when throwing a grenade.")]
 		[SerializeField]
 		private GameObject grenadePrefab;
 		
@@ -57,6 +61,8 @@ namespace InfimaGames.LowPolyShooterPack
 		[Tooltip("Knife GameObject.")]
 		[SerializeField]
 		private GameObject knife;
+
+		[SerializeField] private float meeleDamage;
 
 		[Title(label: "Cameras")]
 
@@ -739,14 +745,17 @@ namespace InfimaGames.LowPolyShooterPack
 			//Start State.
 			meleeing = true;
 			
-			//Play Normal.
+			//Play left arm.
 			characterAnimator.CrossFade("Knife Attack", 0.05f,
 				characterAnimator.GetLayerIndex("Layer Actions Arm Left"), 0.0f);
-			
-			//Play Additive.
-			characterAnimator.CrossFade("Knife Attack", 0.05f,
+
+            //Play right arm
+            characterAnimator.CrossFade("Knife Attack", 0.05f,
 				characterAnimator.GetLayerIndex("Layer Actions Arm Right"), 0.0f);
-		}
+
+            var projectile = knife.GetComponent<Projectile>();
+			projectile.Init(meeleDamage);
+        }
 		
 		/// <summary>
 		/// Changes the value of bolting, and updates the animator.

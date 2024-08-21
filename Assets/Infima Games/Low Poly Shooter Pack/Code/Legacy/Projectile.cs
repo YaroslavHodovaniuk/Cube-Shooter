@@ -1,17 +1,15 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
-using UnityEngine;
 using System.Collections;
-using InfimaGames.LowPolyShooterPack;
-using Random = UnityEngine.Random;
 using System.Linq;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace InfimaGames.LowPolyShooterPack.Legacy
 {
-	public class Projectile : MonoBehaviour
+    public class Projectile : MonoBehaviour
 	{
-
-		[Range(5, 100)]
+		[Range(1, 100)]
 		[Tooltip("After how long time should the bullet prefab be destroyed?")]
 		public float destroyAfter;
 
@@ -42,7 +40,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				GetComponent<Collider>());
 
 			//Start destroy timer
-			StartCoroutine(DestroyAfter());
+			//StartCoroutine(DestroyAfter());
 			_projectileDamage = projectileDamage; 
 
         }
@@ -53,49 +51,14 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			//Ignore collisions with other projectiles.
 			if (collision.gameObject.GetComponent<Projectile>() != null)
 				return;
-			// //Ignore collision if bullet collides with "Player" tag
-			if (collision.gameObject.CompareTag("Enemy"))
-			{
-				var FSMs = collision.gameObject.GetComponentsInParent<PlayMakerFSM>();
-                if (FSMs.Length == 0)
-                {
-                    Debug.LogWarning("No PlayMakerFSM components found in parent objects.");
-                }
 
-                PlayMakerFSM damageSystem = null;
-                for (int i = 0; i < FSMs.Length; i++)
-				{
-					if (FSMs[i].Fsm.Name == "Damage System")
-					{
-                        damageSystem = FSMs[i];
-                    }
-				}
-				if (damageSystem != null)
-				{
-                    var floatVariables = damageSystem.FsmVariables.FloatVariables;
-                    var projectileDamageVariable = floatVariables.FirstOrDefault(f =>
-                    {
-                        return f.Name == "DamageToApply";
-                    });
-                    if (projectileDamageVariable != null)
-                    {
-                        projectileDamageVariable.Value = _projectileDamage;
-                    }
-                    else
-                    {
-                        Debug.LogError($"Variable {_projectileDamage} not found in FloatVariables.");
-                    }
-                    damageSystem.SendEvent("Hit");
-
-                }
-                Destroy(gameObject);
-            }
-			//
-			//If destroy on impact is false, start 
-			//coroutine with random destroy timer
-			if (!destroyOnImpact)
+			ApplyDamageOnEnemy(collision);
+            //
+            //If destroy on impact is false, start 
+            //coroutine with random destroy timer
+            if (!destroyOnImpact)
 			{
-				StartCoroutine(DestroyTimer());
+				//StartCoroutine(DestroyTimer());
 			}
 			//Otherwise, destroy bullet on impact
 			else
@@ -194,5 +157,48 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			//Destroy bullet object
 			Destroy(gameObject);
 		}
-	}
+        private void ApplyDamageOnEnemy(Collision collision)
+        {
+            // //Ignore collision if bullet collides with "Player" tag
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                var FSMs = collision.gameObject.GetComponentsInParent<PlayMakerFSM>();
+                if (FSMs.Length == 0)
+                {
+                    Debug.LogWarning("No PlayMakerFSM components found in parent objects.");
+                }
+
+                PlayMakerFSM damageSystem = null;
+                for (int i = 0; i < FSMs.Length; i++)
+                {
+                    if (FSMs[i].Fsm.Name == "Damage System")
+                    {
+                        damageSystem = FSMs[i];
+                    }
+                }
+                if (damageSystem != null)
+                {
+                    var floatVariables = damageSystem.FsmVariables.FloatVariables;
+                    var projectileDamageVariable = floatVariables.FirstOrDefault(f =>
+                    {
+                        return f.Name == "DamageToApply";
+                    });
+                    if (projectileDamageVariable != null)
+                    {
+                        projectileDamageVariable.Value = _projectileDamage;
+                    }
+                    else
+                    {
+                        Debug.LogError($"Variable {_projectileDamage} not found in FloatVariables.");
+                    }
+                    damageSystem.SendEvent("Hit");
+
+                }
+				if (destroyOnImpact)
+					Destroy(gameObject);
+            }
+        }
+    }
+
+	
 }

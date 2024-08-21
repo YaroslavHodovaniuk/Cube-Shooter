@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 namespace InfimaGames.LowPolyShooterPack.Legacy
 {
@@ -37,6 +38,8 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 		[Header("Audio")]
 		public AudioSource impactSound;
+
+		public float grenadeDamage;
 
 		private void Awake()
 		{
@@ -91,8 +94,43 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				//Ignore the player character.
 				if (hit.CompareTag("Player"))
 					continue;
+                // //Ignore collision if bullet collides with "Player" tag
+                if (hit.gameObject.CompareTag("Enemy"))
+                {
+                    var FSMs = hit.gameObject.GetComponentsInParent<PlayMakerFSM>();
+                    if (FSMs.Length == 0)
+                    {
+                        Debug.LogWarning("No PlayMakerFSM components found in parent objects.");
+                    }
 
-				Rigidbody rb = hit.GetComponent<Rigidbody>();
+                    PlayMakerFSM damageSystem = null;
+                    for (int i = 0; i < FSMs.Length; i++)
+                    {
+                        if (FSMs[i].Fsm.Name == "Damage System")
+                        {
+                            damageSystem = FSMs[i];
+                        }
+                    }
+                    if (damageSystem != null)
+                    {
+                        var floatVariables = damageSystem.FsmVariables.FloatVariables;
+                        var projectileDamageVariable = floatVariables.FirstOrDefault(f =>
+                        {
+                            return f.Name == "DamageToApply";
+                        });
+                        if (projectileDamageVariable != null)
+                        {
+                            projectileDamageVariable.Value = grenadeDamage;
+                        }
+                        else
+                        {
+                            Debug.LogError($"Variable {grenadeDamage} not found in FloatVariables.");
+                        }
+                        damageSystem.SendEvent("Hit");
+
+                    }
+                }
+                Rigidbody rb = hit.GetComponent<Rigidbody>();
 
 				//Add force to nearby rigidbodies
 				if (rb != null)

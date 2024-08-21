@@ -31,7 +31,6 @@ public class HeroUnitBase : UnitBase {
             var stats = Stats;
             stats.Health -= dmg;
             Stats = stats;
-            Debug.Log("Taken damage: " + dmg);
             OnDamageTaken?.Invoke(this);
             OnStatsUpdated?.Invoke(this);
         }

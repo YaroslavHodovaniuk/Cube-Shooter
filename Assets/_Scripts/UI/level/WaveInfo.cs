@@ -8,7 +8,7 @@ public class WaveInfo : CanvasAlpha
     [SerializeField] private TextMeshProUGUI _textWaveCounter;
     [SerializeField] private TextMeshProUGUI _textTimeToNextStage;
 
-    [Title(label: "Counter")]
+    [Title(label: "Tips")]
     [SerializeField] private Animator _waveStartedTipAnimator;
     [SerializeField] private Animator _waveEndedTipAnimator;
 
@@ -19,6 +19,11 @@ public class WaveInfo : CanvasAlpha
     {
         base.OnInitingUI(gameState);
         WaveManager.OnAfterWaveStateChanged += OnWaveStageChange;
+        
+    }
+    private void OnDestroy()
+    {
+        WaveManager.OnAfterWaveStateChanged -= OnWaveStageChange;
     }
     protected override void Tick()
     {
@@ -37,11 +42,13 @@ public class WaveInfo : CanvasAlpha
     {
         if (state == WaveManager.WaveState.WaveInProgress)
         {
+            Debug.Log(this);
             _waveStartedTipAnimator.SetTrigger("WaveStarted");
             _textWaveCounter.text = "Wave: " + WaveManager.Instance.WaveCount;
         }
         else if (state == WaveManager.WaveState.WaveOnCooldown)
         {
+            Debug.Log(this);
             _waveEndedTipAnimator.SetTrigger("WaveEnded");
         }
     }

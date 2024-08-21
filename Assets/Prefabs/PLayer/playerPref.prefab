@@ -53,6 +53,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1981316428607364620}
     m_Modifications:
+    - target: {fileID: 434113066, guid: ba9432025d874624ab6394851fc6a94e, type: 3}
+      propertyPath: grenadeDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 311715146319078261, guid: ba9432025d874624ab6394851fc6a94e,
         type: 3}
       propertyPath: damage
@@ -122,6 +126,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_LPSP_FP_CH
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587661670009319852, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587661670009319852, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4709700336397351161, guid: ba9432025d874624ab6394851fc6a94e,
         type: 3}
