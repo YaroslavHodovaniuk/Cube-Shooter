@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 6871895291685342205}
   m_Layer: 0
   m_Name: Arm_Right_jnt
-  m_TagString: Arms
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 5810643383950180328}
   m_Layer: 0
   m_Name: Hand_Left_jnt
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 5012209450823083868}
   m_Layer: 0
   m_Name: LowerLeg_Left_jnt
-  m_TagString: Legs
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -389,7 +389,7 @@ CharacterJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173617444497952750}
   serializedVersion: 3
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 8783217408648087605}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 8878738652171193668}
   m_Layer: 0
   m_Name: Forearm_Right_jnt
-  m_TagString: Arms
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 2814013337487059950}
   m_Layer: 0
   m_Name: Arm_Left_jnt
-  m_TagString: Arms
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 1867655426743479622}
   m_Layer: 0
   m_Name: UpperLeg_Left_jnt
-  m_TagString: Legs
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1157,7 +1157,7 @@ CharacterJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2633533999431531501}
   serializedVersion: 3
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 8326907646854992859}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
@@ -1399,7 +1399,7 @@ GameObject:
   - component: {fileID: 8745342397506256130}
   m_Layer: 0
   m_Name: LowerLeg_Right_jnt
-  m_TagString: Legs
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1455,7 +1455,7 @@ CharacterJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3839130329017374445}
   serializedVersion: 3
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 6540722115663147221}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
@@ -12015,7 +12015,7 @@ GameObject:
   - component: {fileID: 7299973024795177744}
   m_Layer: 0
   m_Name: UpperLeg_Right_jnt
-  m_TagString: Legs
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12071,7 +12071,7 @@ CharacterJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4918331424846643091}
   serializedVersion: 3
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 8326907646854992859}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
@@ -12143,7 +12143,7 @@ GameObject:
   - component: {fileID: 5793847879590375088}
   m_Layer: 0
   m_Name: Hips_jnt
-  m_TagString: Body
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12259,7 +12259,7 @@ GameObject:
   - component: {fileID: 710619139386174672}
   m_Layer: 0
   m_Name: Forearm_Left_jnt
-  m_TagString: Arms
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12585,7 +12585,7 @@ GameObject:
   - component: {fileID: 3681627156936170162}
   m_Layer: 0
   m_Name: Foot_Left_jnt
-  m_TagString: Legs
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12641,7 +12641,7 @@ CharacterJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6857688018628734239}
   serializedVersion: 3
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 6279606747559452084}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
@@ -12780,7 +12780,7 @@ GameObject:
   - component: {fileID: 8769439344550283228}
   m_Layer: 0
   m_Name: Spine_jnt 1
-  m_TagString: Body
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12909,7 +12909,7 @@ GameObject:
   - component: {fileID: 5612096804914441498}
   m_Layer: 0
   m_Name: Foot_Right_jnt
-  m_TagString: Legs
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12965,7 +12965,7 @@ CharacterJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8529397983457482590}
   serializedVersion: 3
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 881472635738635349}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
@@ -13668,7 +13668,7 @@ GameObject:
   - component: {fileID: 3034716141303796119}
   m_Layer: 0
   m_Name: Shoulder_Left_jnt
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
