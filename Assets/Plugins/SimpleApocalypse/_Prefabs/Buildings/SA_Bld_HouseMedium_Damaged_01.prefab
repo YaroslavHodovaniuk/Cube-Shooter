@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 433398}
   - component: {fileID: 3394698}
   - component: {fileID: 2355030}
+  - component: {fileID: 5290108141770383844}
   m_Layer: 0
   m_Name: SA_Bld_HouseMedium_Damaged_01
   m_TagString: Untagged
@@ -260,3 +261,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5290108141770383844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186742}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.860596, y: 10.869454, z: 14.244445}
+  m_Center: {x: -0.35667896, y: 5.434727, z: 1.3877769}

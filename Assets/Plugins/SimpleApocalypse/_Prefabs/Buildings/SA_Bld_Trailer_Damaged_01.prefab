@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 487412}
   - component: {fileID: 3395302}
   - component: {fileID: 2322706}
+  - component: {fileID: -2240937763475112599}
   m_Layer: 0
   m_Name: SA_Bld_Trailer_Damaged_01
   m_TagString: Untagged
@@ -87,6 +88,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-2240937763475112599
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105106}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.386902, y: 7.287838, z: 11.956686}
+  m_Center: {x: 0.7378955, y: 3.5127048, z: -1.4065695}
 --- !u!1 &161892
 GameObject:
   m_ObjectHideFlags: 0

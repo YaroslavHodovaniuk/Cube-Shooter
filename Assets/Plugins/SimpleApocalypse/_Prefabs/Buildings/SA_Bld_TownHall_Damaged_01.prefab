@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 469640}
   - component: {fileID: 3305160}
   - component: {fileID: 2389554}
+  - component: {fileID: 9028185696232822660}
   m_Layer: 0
   m_Name: SA_Bld_TownHall_Damaged_01
   m_TagString: Untagged
@@ -88,6 +89,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9028185696232822660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100802}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 33.058533, y: 15.80882, z: 19.123055}
+  m_Center: {x: -2.0408516, y: 7.321895, z: 1.3837523}
 --- !u!1 &102908
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 488006}
   - component: {fileID: 3364710}
   - component: {fileID: 2340944}
+  - component: {fileID: 8450917007012623547}
   m_Layer: 0
   m_Name: SA_Bld_Shop_Damaged_01
   m_TagString: Untagged
@@ -87,6 +88,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8450917007012623547
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136422}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.4436035, y: 13.988747, z: 10.555851}
+  m_Center: {x: -0.2496233, y: 6.490239, z: 0.45848727}
 --- !u!1 &198714
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 481746}
   - component: {fileID: 3377696}
   - component: {fileID: 2352944}
+  - component: {fileID: 836590870074751084}
   m_Layer: 0
   m_Name: SA_Bld_CoolingTowerLarge_Damaged_01
   m_TagString: Untagged
@@ -86,3 +87,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &836590870074751084
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122672}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 25.84851
+  m_Height: 87.49254
+  m_Direction: 1
+  m_Center: {x: -0.000049591064, y: 17.722252, z: -0.000009536743}

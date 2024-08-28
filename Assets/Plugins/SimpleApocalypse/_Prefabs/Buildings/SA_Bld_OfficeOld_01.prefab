@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 455778}
   - component: {fileID: 3366678}
   - component: {fileID: 2362308}
+  - component: {fileID: 2633286894595588154}
   m_Layer: 0
   m_Name: SA_Bld_OfficeOld_01
   m_TagString: Untagged
@@ -260,3 +261,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2633286894595588154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185600}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.506303, y: 20.15528, z: 10.81906}
+  m_Center: {x: -0.34223604, y: 9.990964, z: -0.17606592}

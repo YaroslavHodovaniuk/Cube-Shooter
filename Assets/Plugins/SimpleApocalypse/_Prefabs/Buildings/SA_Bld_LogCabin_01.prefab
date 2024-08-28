@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 411104}
   - component: {fileID: 3376612}
   - component: {fileID: 2335186}
+  - component: {fileID: 6371620620984646625}
   m_Layer: 0
   m_Name: SA_Bld_LogCabin_01
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6371620620984646625
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134842}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.917358, y: 9.286924, z: 14.029117}
+  m_Center: {x: 0.000010967255, y: 4.4624357, z: -0.19722795}
