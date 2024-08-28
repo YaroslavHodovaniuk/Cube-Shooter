@@ -61,7 +61,7 @@ public class ShopCell : MonoBehaviour
         {
             _equipButton.gameObject.SetActive(false);
             _buyButton.gameObject.SetActive(true);
-            priceText.text = "";
+            priceText.text = Shop.Instance.GetPrice(_index).ToString();
         }
     }
 
