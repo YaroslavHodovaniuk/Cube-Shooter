@@ -194,6 +194,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: button
       objectReference: {fileID: 0}
+    - target: {fileID: 2529862894166000699, guid: 17943a0ad9a65574cb9bc964727059b9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 514
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529862894166000699, guid: 17943a0ad9a65574cb9bc964727059b9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 8207427177206424666, guid: 17943a0ad9a65574cb9bc964727059b9,
         type: 3}
       propertyPath: m_Pivot.x

@@ -9,6 +9,7 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
     [SerializeField] private int SpawnRateInWaveCooldown;
     [Space]
     [SerializeField] private int WaveCount;
+    [SerializeField, Range(5, 20)] private int enemyInOneWave;
 
     private Coroutine _spawnCorotine;
 
@@ -24,7 +25,8 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
             Debug.LogWarning("SpawnRateInWaveProgress or SpawnRateInWaveCooldown less then zero");
             return;
         }
-        _spawnCorotine = StartCoroutine(SpawnEnemyWaveCaroutinre());
+        WaveManager.OnAfterWaveStateChanged += OnWaveHasStarted;
+        WaveManager.OnAfterWaveStateChanged += OnWaveHasEnded;
         Environment.Instance.Player.OnHeroDeath += OnPlayerDied;
     }
 
@@ -49,27 +51,24 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
 
     private IEnumerator SpawnEnemyWaveCaroutinre()
     {
-        for (int i = 0; i < WaveCount; i++)
+        for (int i = 0; i < enemyInOneWave; i++)
         {
-            if (WaveManager.Instance.CurrentState == WaveManager.WaveState.WaveInProgress)
-            {
-                var enemy = SpawnUnit(0, Environment.Instance.GetRandomEnemySpawnPoint(), Environment.Instance.EnemyParent);
-                yield return new WaitForSeconds(SpawnRateInWaveProgress);
-            }
-            else
-            {
-                if (!WaveManager.Instance.IsSpawnOnlyInWaveProgress)
-                {
-                    var enemy = SpawnUnit(0, Environment.Instance.GetRandomEnemySpawnPoint(), Environment.Instance.EnemyParent);
-                    yield return new WaitForSeconds(SpawnRateInWaveCooldown);
-                }   
-                else
-                    yield return null;
-            }
-                
+            var enemy = SpawnUnit(0, Environment.Instance.GetRandomEnemySpawnPoint(), Environment.Instance.EnemyParent);
+            yield return new WaitForSeconds(SpawnRateInWaveProgress);
         }
     }
 
+    private void OnWaveHasStarted(WaveManager.WaveState waveState)
+    {
+        if (waveState == WaveManager.WaveState.WaveInProgress)
+            _spawnCorotine = StartCoroutine(SpawnEnemyWaveCaroutinre());
+    }
+    private void OnWaveHasEnded(WaveManager.WaveState waveState)
+    {
+        if (waveState == WaveManager.WaveState.WaveOnCooldown)
+            if (_spawnCorotine != null)
+                StopCoroutine(_spawnCorotine);
+    }
     private void OnPlayerDied(HeroUnitBase hero)
     {
         StopCoroutine(_spawnCorotine);

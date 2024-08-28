@@ -42,13 +42,11 @@ public class WaveInfo : CanvasAlpha
     {
         if (state == WaveManager.WaveState.WaveInProgress)
         {
-            Debug.Log(this);
             _waveStartedTipAnimator.SetTrigger("WaveStarted");
             _textWaveCounter.text = "Wave: " + WaveManager.Instance.WaveCount;
         }
         else if (state == WaveManager.WaveState.WaveOnCooldown)
         {
-            Debug.Log(this);
             _waveEndedTipAnimator.SetTrigger("WaveEnded");
         }
     }

@@ -262,7 +262,7 @@
                     "name": "",
                     "id": "e6887bb4-0be9-409a-a15d-8003ce2787e5",
                     "path": "<Gamepad>/buttonWest",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Reload",

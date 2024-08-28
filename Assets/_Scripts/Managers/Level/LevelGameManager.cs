@@ -81,8 +81,9 @@ public class LevelGameManager : StaticInstance<LevelGameManager>
     {
         Environment.Instance.Player.OnHeroDeath += OnPlayerDied;
         _gameInProgressStartTime = Time.time;
-        LevelUnitManager.Instance.SpawningEnemies();
         WaveManager.Instance.StartWaveChangingProcess();
+        LevelUnitManager.Instance.SpawningEnemies();
+        
     }
     private void HandleGameEnded()
     {

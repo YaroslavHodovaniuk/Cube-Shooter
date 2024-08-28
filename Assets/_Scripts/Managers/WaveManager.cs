@@ -41,7 +41,7 @@ public class WaveManager : StaticInstance<WaveManager>
         if (LevelGameManager.Instance.State != LevelGameState.GameInProgress)
             return;
 
-        StartCoroutine(WaveCaroutine());
+        ChangeState(WaveState.WaveOnCooldown);
     }
 
     public float GetTimeToNextState()
@@ -60,35 +60,25 @@ public class WaveManager : StaticInstance<WaveManager>
     {
         OnAfterWaveStateChanged = null;
     }
-    private IEnumerator WaveCaroutine()
+    private void Update()
     {
-        while (LevelGameManager.Instance.State == LevelGameState.GameInProgress)
+        if (LevelGameManager.Instance.State != LevelGameState.GameInProgress)
         {
-            if (WaveCount == 0)
+            return;
+        }
+        if (CurrentState == WaveState.WaveOnCooldown)
+        {
+            if (Time.time - _lastWaveEnded > _waveCooldown)
+            {
+                ChangeState(WaveState.WaveInProgress);
+            }
+        }
+        else if (CurrentState == WaveState.WaveInProgress)
+        {
+            if (Time.time - _lastWaveStarted > _waveDuration)
             {
                 ChangeState(WaveState.WaveOnCooldown);
-                yield return new WaitForSeconds(_waveCooldown);
             }
-
-            if (CurrentState == WaveState.WaveOnCooldown)
-            {
-                if (Time.time - _lastWaveEnded > _waveCooldown)
-                {
-                    ChangeState(WaveState.WaveInProgress);
-                    Debug.Log("WaveInProgress");
-                    yield return new WaitForSeconds(_waveDuration);
-                }
-            }
-            else if (CurrentState == WaveState.WaveInProgress)
-            {
-                if (Time.time - _lastWaveStarted > _waveDuration)
-                {
-                    ChangeState(WaveState.WaveOnCooldown);
-                    Debug.Log("WaveOnCooldown");
-                    yield return new WaitForSeconds(_waveCooldown);
-                }
-            }
-            yield return null;
         }
     }
     private void ChangeState(WaveState state)
