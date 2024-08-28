@@ -27,7 +27,7 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "a299f9af-95f1-47fd-bf72-fec244e341fd",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -214,17 +214,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "aeaa395a-3661-42a1-a33c-7a8c790be880",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "8296c540-e14f-4d51-b70b-501abdfce15f",
