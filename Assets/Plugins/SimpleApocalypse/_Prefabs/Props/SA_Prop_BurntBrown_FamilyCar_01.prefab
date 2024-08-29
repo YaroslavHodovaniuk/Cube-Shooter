@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 457882}
   - component: {fileID: 3396166}
   - component: {fileID: 2322364}
+  - component: {fileID: 6709852852654665732}
   m_Layer: 0
   m_Name: SA_Prop_BurntBrown_FamilyCar_01
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6709852852654665732
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132030}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.6615114, y: 2.5051844, z: 5.815132}
+  m_Center: {x: -0.07812315, y: 1.1057936, z: -0.00055885356}

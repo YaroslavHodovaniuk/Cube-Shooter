@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 403010}
   - component: {fileID: 3330118}
   - component: {fileID: 2370032}
+  - component: {fileID: 6989960561250608412}
   m_Layer: 0
   m_Name: SA_Prop_UteBrokenMore_02
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6989960561250608412
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166592}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.2773285, y: 2.979251, z: 6.6739807}
+  m_Center: {x: 0.1596756, y: 1.2520013, z: -0.072280884}

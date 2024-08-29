@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 455140}
   - component: {fileID: 3337476}
   - component: {fileID: 2311710}
+  - component: {fileID: 5156747825594876736}
   m_Layer: 0
   m_Name: SA_Prop_Cage_01
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5156747825594876736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139292}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.4689488, y: 3.72669, z: 3.4689412}
+  m_Center: {x: 0.0000019073486, y: 1.8634723, z: 0.000015258789}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 419216}
   - component: {fileID: 3391244}
   - component: {fileID: 2323734}
+  - component: {fileID: 195407336301207459}
   m_Layer: 0
   m_Name: SA_Prop_FenceSmall_04
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &195407336301207459
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101914}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.2437363, y: 4.341065, z: 1.1454506}
+  m_Center: {x: -0.000002861023, y: 2.0114176, z: 0}

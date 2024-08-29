@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 466756}
   - component: {fileID: 3353432}
   - component: {fileID: 2339982}
+  - component: {fileID: 723365795002120428}
   m_Layer: 0
   m_Name: SA_Prop_Fence_Brick_Damaged_01
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &723365795002120428
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111758}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.47969818, y: 2.9997227, z: 2.2242012}
+  m_Center: {x: 0.19098282, y: 1.4998614, z: 1.1121006}

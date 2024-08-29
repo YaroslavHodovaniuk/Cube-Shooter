@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 497886}
   - component: {fileID: 3349188}
   - component: {fileID: 2302108}
+  - component: {fileID: 3772449776782092826}
   m_Layer: 0
   m_Name: SA_Prop_AmmoPile_M_01
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3772449776782092826
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161824}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.9419403, y: 1.5623225, z: 3.3208542}
+  m_Center: {x: -0.0000019073486, y: 0.72563726, z: 0}

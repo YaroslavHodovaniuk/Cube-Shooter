@@ -282,17 +282,6 @@
                 },
                 {
                     "name": "",
-                    "id": "b85d03ba-6afe-4100-9072-d7bb950e8849",
-                    "path": "<Pointer>/delta",
-                    "interactions": "",
-                    "processors": "ScaleVector2(x=0.05,y=0.05)",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "dc3a03f5-a9b8-4f03-a059-0934bff25be3",
                     "path": "<Keyboard>/h",
                     "interactions": "",

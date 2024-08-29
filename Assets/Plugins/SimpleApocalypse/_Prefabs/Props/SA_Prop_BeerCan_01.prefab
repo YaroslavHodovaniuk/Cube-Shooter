@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 405058}
   - component: {fileID: 3380968}
   - component: {fileID: 2331436}
+  - component: {fileID: 6182954223540475196}
   m_Layer: 0
   m_Name: SA_Prop_BeerCan_01
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6182954223540475196
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171134}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.16231813, y: 0.3548658, z: 0.16230823}
+  m_Center: {x: -0.000015258789, y: 1.6205602, z: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 494304}
   - component: {fileID: 3309806}
   - component: {fileID: 2306650}
+  - component: {fileID: 1088880149287738367}
   m_Layer: 0
   m_Name: SA_Prop_BurntBlack_Bus_01
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1088880149287738367
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107394}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.4435267, y: 3.0099013, z: 9.44419}
+  m_Center: {x: -0.0000038146973, y: 1.5049506, z: 0}

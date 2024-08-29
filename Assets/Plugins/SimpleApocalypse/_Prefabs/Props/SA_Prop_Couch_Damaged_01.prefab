@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 440242}
   - component: {fileID: 3308946}
   - component: {fileID: 2371518}
+  - component: {fileID: 2076579327219812744}
   m_Layer: 0
   m_Name: SA_Prop_Couch_Damaged_01
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2076579327219812744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180672}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.1443768, y: 2.136393, z: 1.4788554}
+  m_Center: {x: 0.16254342, y: 1.0238161, z: -0.1446053}

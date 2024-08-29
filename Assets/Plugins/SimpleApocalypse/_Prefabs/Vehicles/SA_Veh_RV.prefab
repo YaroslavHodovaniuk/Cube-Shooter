@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 419814}
   - component: {fileID: 3357782}
   - component: {fileID: 2374460}
+  - component: {fileID: 773502080541488253}
   m_Layer: 0
   m_Name: SA_Veh_RV
   m_TagString: Untagged
@@ -177,6 +178,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &773502080541488253
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117122}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.620239, y: 3.4937003, z: 9.171023}
+  m_Center: {x: 0.0000019073486, y: 2.4353952, z: 0.040268894}
 --- !u!1 &121984
 GameObject:
   m_ObjectHideFlags: 0

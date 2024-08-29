@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 484432}
   - component: {fileID: 3315152}
   - component: {fileID: 2347046}
+  - component: {fileID: 5769745198186051349}
   m_Layer: 0
   m_Name: SA_Veh_WarTruck
   m_TagString: Untagged
@@ -94,6 +95,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5769745198186051349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115952}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.8873482, y: 4.7939367, z: 13.924781}
+  m_Center: {x: 0.00001335144, y: 2.8935614, z: -0.6267562}
 --- !u!1 &117480
 GameObject:
   m_ObjectHideFlags: 0

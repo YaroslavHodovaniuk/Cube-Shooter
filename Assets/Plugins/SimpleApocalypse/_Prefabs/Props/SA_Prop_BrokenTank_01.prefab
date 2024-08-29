@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 403340}
   - component: {fileID: 3348204}
   - component: {fileID: 2376340}
+  - component: {fileID: 253097908725860528}
   m_Layer: 0
   m_Name: SA_Prop_BrokenTank_01
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &253097908725860528
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173080}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.3055897, y: 5.841549, z: 9.386974}
+  m_Center: {x: 0.5494489, y: 2.9207745, z: 0.6261193}

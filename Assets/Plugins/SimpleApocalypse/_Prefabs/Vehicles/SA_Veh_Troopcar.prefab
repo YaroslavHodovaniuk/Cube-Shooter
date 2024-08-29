@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 425826}
   - component: {fileID: 3310868}
   - component: {fileID: 2358796}
+  - component: {fileID: 4010275644746691249}
   m_Layer: 0
   m_Name: SA_Veh_Troopcar
   m_TagString: Untagged
@@ -436,6 +437,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4010275644746691249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155732}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.9770584, y: 4.20033, z: 7.394201}
+  m_Center: {x: 0.0000076293945, y: 2.716691, z: -0.0840857}
 --- !u!1 &161062
 GameObject:
   m_ObjectHideFlags: 0

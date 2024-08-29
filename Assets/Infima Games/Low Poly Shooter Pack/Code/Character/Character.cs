@@ -1352,10 +1352,10 @@ namespace InfimaGames.LowPolyShooterPack
 		/// <summary>
 		/// Look.
 		/// </summary>
-		public void OnLook(InputAction.CallbackContext context)
+		public void OnLook(Vector2 input)
 		{
 			//Read.
-			axisLook = cursorLocked ? context.ReadValue<Vector2>() : default;
+			axisLook = input;
 
 			//Make sure that we have a weapon.
 			if (equippedWeapon == null)

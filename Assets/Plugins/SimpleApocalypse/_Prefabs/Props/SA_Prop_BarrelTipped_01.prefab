@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 487622}
   - component: {fileID: 3367396}
   - component: {fileID: 2389542}
+  - component: {fileID: 8035605994107923638}
   m_Layer: 0
   m_Name: SA_Prop_BarrelTipped_01
   m_TagString: Untagged
@@ -86,3 +87,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &8035605994107923638
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152974}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.0004444
+  m_Height: 5.1731243
+  m_Direction: 1
+  m_Center: {x: 0.022721708, y: 0.221591, z: -0.9786462}

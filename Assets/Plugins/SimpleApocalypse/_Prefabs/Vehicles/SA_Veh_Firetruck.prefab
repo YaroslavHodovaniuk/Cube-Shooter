@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 455770}
   - component: {fileID: 3360214}
   - component: {fileID: 2303630}
+  - component: {fileID: 8054979953624547126}
   m_Layer: 0
   m_Name: SA_Veh_Firetruck
   m_TagString: Untagged
@@ -263,6 +264,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8054979953624547126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.741877, y: 4.7280293, z: 9.378295}
+  m_Center: {x: 0, y: 2.8624468, z: -1.0745656}
 --- !u!1 &163744
 GameObject:
   m_ObjectHideFlags: 0
