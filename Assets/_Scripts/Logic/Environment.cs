@@ -20,7 +20,7 @@ public class Environment : StaticInstance<Environment>
     private UnityAction<int> AliveEnemyCountHasChenged;
 
     public Transform PlayerParent => transform.GetChild(0).GetChild(0);
-    public Transform EnemyParent => this.transform.GetChild(0).GetChild(1).GetChild(0);
+    public Transform EnemyParent => this.transform.GetChild(0).GetChild(1);
 
     public int CurrentEnemyAlive 
     {   
@@ -107,7 +107,6 @@ public class Environment : StaticInstance<Environment>
 
     public Transform GetRandomEnemySpawnPoint()
     {
-        return EnemySpawnPoints[Random.Range(0, EnemySpawnPoints.Count)];   
+        return Player.EnemySpawnCollider.GetSpawnGroup().GetSpawnPoint();
     }
-
 }

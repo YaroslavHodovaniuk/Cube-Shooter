@@ -7,13 +7,15 @@ using UnityEngine.Events;
 
 public class HeroUnitBase : UnitBase {
 
+    [SerializeField] private EnemySpawnCollider enemySpawnCollider;
+
     public UnityAction<HeroUnitBase> OnStatsUpdated;
     public UnityAction<HeroUnitBase> OnDamageTaken;
 
     public UnityAction<HeroUnitBase> OnHeroDeath;
 
     private PlayMakerFSM fsm;
-
+    public EnemySpawnCollider EnemySpawnCollider => enemySpawnCollider;
     public override void SetStats(Stats stats)
     {
         base.SetStats(stats);
@@ -22,6 +24,7 @@ public class HeroUnitBase : UnitBase {
 
         fsm = transform.GetChild(0).GetComponent<PlayMakerFSM>();
         InitFSM();
+        enemySpawnCollider.Init();
     }
 
     public override void TakeDamage(int dmg)
