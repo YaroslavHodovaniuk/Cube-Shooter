@@ -5,8 +5,8 @@ using UnityEngine;
 public class LevelUnitManager : StaticInstance<LevelUnitManager>
 {
 
-    [SerializeField] private int SpawnRateInWaveProgress;
-    [SerializeField] private int SpawnRateInWaveCooldown;
+    private float SpawnRateProgress = 0.1f;
+    private float SpawnRateCooldown = 5f;
     [Space]
     [SerializeField] private int WaveCount;
     [SerializeField, Range(5, 20)] private int enemyInOneWave;
@@ -20,9 +20,9 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
 
     public void SpawningEnemies()
     {
-        if (SpawnRateInWaveProgress <= 0 || SpawnRateInWaveCooldown <= 0)
+        if (SpawnRateProgress <= 0 || SpawnRateCooldown <= 0)
         {
-            Debug.LogWarning("SpawnRateInWaveProgress or SpawnRateInWaveCooldown less then zero");
+            Debug.LogWarning("SpawnRateProgress or SpawnRateCooldown less then zero");
             return;
         }
         WaveManager.OnAfterWaveStateChanged += OnWaveHasStarted;
@@ -51,10 +51,10 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
 
     private IEnumerator SpawnEnemyWaveCaroutinre()
     {
-        for (int i = 0; i < enemyInOneWave; i++)
+        for (; ; )
         {
             var enemy = SpawnUnit(0, Environment.Instance.GetRandomEnemySpawnPoint(), Environment.Instance.EnemyParent);
-            yield return new WaitForSeconds(SpawnRateInWaveProgress);
+            yield return new WaitForSeconds(SpawnRateProgress);
         }
     }
 

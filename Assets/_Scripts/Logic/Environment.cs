@@ -13,7 +13,6 @@ public class Environment : StaticInstance<Environment>
     private Transform _playerSpawnPoint;
     private List<Transform> enemySpawnPoints;
 
-    private Level _level;
     private HeroUnitBase _player;
     private List<EnemyUnitBase> _enemyUnits = new();
 

@@ -192,7 +192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8659805075728532252
 RectTransform:
   m_ObjectHideFlags: 0
@@ -545,7 +545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5393623834532072025
 RectTransform:
   m_ObjectHideFlags: 0
@@ -828,6 +828,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5393623835024644610}
   - component: {fileID: 3853359025209894021}
+  - component: {fileID: 140969787266914409}
   m_Layer: 5
   m_Name: P_LPSP_UI_Canvas
   m_TagString: Untagged
@@ -875,6 +876,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interpolationSpeed: 12
   cursorUnlockedAlpha: 0
+--- !u!225 &140969787266914409
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393623835024644669}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5393623835113149036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,7 +1648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5393623836115087791
 RectTransform:
   m_ObjectHideFlags: 0

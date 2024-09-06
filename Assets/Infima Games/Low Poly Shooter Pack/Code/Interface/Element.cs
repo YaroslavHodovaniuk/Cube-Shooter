@@ -69,18 +69,15 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// </summary>
         private void Update()
         {
-        //    if (LevelGameManager.Instance.State == LevelGameState.GameInProgress)
-        //    {
-                //Ignore if we don't have an Inventory.
+            if (LevelGameManager.Instance.State == LevelGameState.GameInProgress)
+            {
                 if (Equals(inventoryBehaviour, null))
                     return;
 
-                //Get Equipped Weapon.
                 equippedWeaponBehaviour = inventoryBehaviour.GetEquipped();
 
-                //Tick.
                 Tick();
-            //}
+            }
         }
 
         #endregion

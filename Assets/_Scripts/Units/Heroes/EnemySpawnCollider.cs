@@ -15,18 +15,20 @@ public class EnemySpawnCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SpawnPointGrop")
+        if (other.gameObject.GetComponent<SpawnGroup>() != null)
         {
             spawnGroups.Add(other.gameObject.GetComponent<SpawnGroup>());
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "SpawnPointGrop")
+        if (other.gameObject.GetComponent<SpawnGroup>() != null)
         {
-            spawnGroups.Remove(other.gameObject.GetComponent<SpawnGroup>());
+            var spawnGroup = spawnGroups.Find(r => other.gameObject.name == r.gameObject.name);
+            spawnGroups.Remove(spawnGroup);
         }
     }
+
     public SpawnGroup GetSpawnGroup()
     {
         return  spawnGroups[Random.Range(0, spawnGroups.Count)];

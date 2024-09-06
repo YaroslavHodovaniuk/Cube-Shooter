@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class EnemyUnitBase : UnitBase
 {
+    [SerializeField] private float _despawnDistance;
+
     public UnityAction<EnemyUnitBase> DeathEvent = null;
 
     public override void SetStats(Stats stats)
@@ -50,9 +52,18 @@ public class EnemyUnitBase : UnitBase
     private void InvokeDeathEvent()
     {
         DeathEvent?.Invoke(this);
+        Destroy(gameObject);
     }
     private void AddScoreOnDeath()
     {
         Environment.Instance.Player.AddScore(Stats.Score);
+    }
+    private void Update()
+    {
+        if (Vector3.Distance(Environment.Instance.Player.transform.GetChild(0).transform.position, transform.position) > _despawnDistance)
+        {
+            Environment.Instance.UnregisterUnit(this);
+            Destroy(gameObject);
+        }
     }
 }

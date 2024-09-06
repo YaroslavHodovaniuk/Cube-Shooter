@@ -9,11 +9,12 @@ namespace InfimaGames.LowPolyShooterPack.Interface
     /// </summary>
     public class CanvasSpawner : StaticInstance<CanvasSpawner>
     {
-        #region FIELDS SERIALIZED
 
+
+        [SerializeField] private GameObject _inputUI;
         [SerializeField] private GameObject _endGamePanel;
        
-        #endregion
+     
 
         #region UNITY
 
@@ -32,7 +33,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         {
             if (state != LevelGameState.GameEnded)
                 return;
-
+            _inputUI.SetActive(false );
             _endGamePanel.GetComponent<EndGameViewPanel>().Init();
             _endGamePanel.SetActive(true);
         }

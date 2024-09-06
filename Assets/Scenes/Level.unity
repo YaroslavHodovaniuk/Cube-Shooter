@@ -777,8 +777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8885e400dc2082140a3eaf2a22691981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnRateInWaveProgress: 2
-  SpawnRateInWaveCooldown: 3
+  SpawnRateProgress: 0.05
+  SpawnRateCooldown: 0
   WaveCount: 100
   enemyInOneWave: 20
 --- !u!1 &1689643650
@@ -1091,22 +1091,22 @@ PrefabInstance:
     - target: {fileID: 5034481099176465715, guid: 2c3d6546efaf3d94f818b8b6fda745b5,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034481099176465715, guid: 2c3d6546efaf3d94f818b8b6fda745b5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034481099176465715, guid: 2c3d6546efaf3d94f818b8b6fda745b5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034481099176465715, guid: 2c3d6546efaf3d94f818b8b6fda745b5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5071236185497584692, guid: 2c3d6546efaf3d94f818b8b6fda745b5,
         type: 3}
