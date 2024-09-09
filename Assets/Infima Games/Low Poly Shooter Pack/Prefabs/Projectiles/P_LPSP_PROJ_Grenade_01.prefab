@@ -255,4 +255,4 @@ MonoBehaviour:
   minimumForce: 4500
   maximumForce: 5000
   impactSound: {fileID: 82305533685823640}
-  grenadeDamage: 100
+  _damageMultiplayer: 3

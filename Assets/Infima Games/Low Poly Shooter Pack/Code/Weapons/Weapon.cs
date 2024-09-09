@@ -26,7 +26,9 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("Damage)")]
         [SerializeField]
-        private float damage = 1.0f;
+        private float WeaponTier = 1.0f;
+        [SerializeField]
+        private float _patronsToKill = 1.0f;
 
         [Tooltip("Is this weapon automatic? If yes, then holding down the firing button will continuously fire.")]
         [SerializeField] 
@@ -200,8 +202,10 @@ namespace InfimaGames.LowPolyShooterPack
         /// The player character's camera.
         /// </summary>
         private Transform playerCamera;
-        
+
         #endregion
+
+        public float WeaponDamage => LevelUnitManager.Instance.BaseEnemyHP * Mathf.Pow(2,WeaponTier - 1) / _patronsToKill;
 
         #region UNITY
         
@@ -455,7 +459,7 @@ namespace InfimaGames.LowPolyShooterPack
 
                 //Spawn projectile from the projectile spawn point.
                 GameObject projectile = Instantiate(prefabProjectile, playerCamera.position, Quaternion.Euler(playerCamera.eulerAngles + spreadValue));
-                projectile.GetComponent<Projectile>().Init(damage);
+                projectile.GetComponent<Projectile>().Init(WeaponDamage);
                 //Add velocity to the projectile.
                 projectile.GetComponent<Rigidbody>().linearVelocity = projectile.transform.forward * projectileImpulse;
             }

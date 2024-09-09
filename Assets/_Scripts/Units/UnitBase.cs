@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// This will share logic for any unit on the field. Could be friend or foe, controlled or not.
-/// Things like taking damage, dying, animation triggers etc
+/// Things like taking WeaponTier, dying, animation triggers etc
 /// </summary>
 public abstract class UnitBase : MonoBehaviour {
 

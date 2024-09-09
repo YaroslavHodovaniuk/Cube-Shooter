@@ -626,8 +626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72cb02cb9457e745b6c43ffaff0838f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waveDuration: 30
-  _waveCooldown: 10
+  _waveDuration: 10
+  _waveCooldown: 1
   _lastWaveCount: 100
   _isSpawnOnlyInWaveProgress: 0
 --- !u!1 &971459887
@@ -777,9 +777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8885e400dc2082140a3eaf2a22691981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnRateProgress: 0.05
-  SpawnRateCooldown: 0
-  WaveCount: 100
+  _waveCount: 50
+  _baseEnemyHP: 100
   enemyInOneWave: 20
 --- !u!1 &1689643650
 GameObject:

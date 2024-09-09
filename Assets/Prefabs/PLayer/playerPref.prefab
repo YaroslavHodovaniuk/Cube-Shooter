@@ -55,12 +55,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 1981316428607364620}
     m_Modifications:
     - target: {fileID: 434113066, guid: ba9432025d874624ab6394851fc6a94e, type: 3}
+      propertyPath: _sensivity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 434113066, guid: ba9432025d874624ab6394851fc6a94e, type: 3}
       propertyPath: grenadesUnlimited
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 434113066, guid: ba9432025d874624ab6394851fc6a94e, type: 3}
       propertyPath: grenadeSpawnOffset
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249279256697547228, guid: ba9432025d874624ab6394851fc6a94e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2748913124992463393, guid: ba9432025d874624ab6394851fc6a94e,
         type: 3}

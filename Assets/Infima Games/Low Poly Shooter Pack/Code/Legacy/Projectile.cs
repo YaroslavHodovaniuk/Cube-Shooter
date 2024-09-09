@@ -22,7 +22,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		[Tooltip("Maximum time after impact that the bullet is destroyed")]
 		public float maxDestroyTime;
 
-		private float _projectileDamage = 0;
+		protected float _projectileDamage = 0;
 
 		[Header("Impact Effect Prefabs")]
 		public Transform[] bloodImpactPrefabs;
@@ -185,6 +185,9 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
                     });
                     if (projectileDamageVariable != null)
                     {
+						if (gameObject.name == "SM_Knife_01")
+							_projectileDamage *= 2;
+
                         projectileDamageVariable.Value = _projectileDamage;
                     }
                     else

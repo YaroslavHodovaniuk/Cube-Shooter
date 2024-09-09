@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 using InfimaGames.LowPolyShooterPack.Legacy;
+using UnityEngine.Windows;
 
 namespace InfimaGames.LowPolyShooterPack
 {
@@ -95,8 +96,10 @@ namespace InfimaGames.LowPolyShooterPack
 		[Tooltip("Determines how fast the character's weapons are aimed.")]
 		[SerializeField]
 		private float aimingSpeedMultiplier = 1.0f;
-		
-		[Title(label: "Animation Procedural")]
+        [SerializeField]
+        private float _sensivity = 1.0f;
+
+        [Title(label: "Animation Procedural")]
 		
 		[Tooltip("Character Animator.")]
 		[SerializeField]
@@ -1352,10 +1355,11 @@ namespace InfimaGames.LowPolyShooterPack
 		/// <summary>
 		/// Look.
 		/// </summary>
-		public void OnLook(Vector2 input)
+		public void OnLook(InputAction.CallbackContext context)
 		{
-			//Read.
-			axisLook = input;
+			Vector2 input = context.ReadValue<Vector2>();
+            //Read.
+            axisLook = input * _sensivity;
 
 			//Make sure that we have a weapon.
 			if (equippedWeapon == null)

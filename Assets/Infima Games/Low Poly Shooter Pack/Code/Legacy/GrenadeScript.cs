@@ -38,8 +38,8 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 		[Header("Audio")]
 		public AudioSource impactSound;
-
-		public float grenadeDamage;
+		[SerializeField] private float _damageMultiplayer;
+        private float grenadeDamage;
 
 		private void Awake()
 		{
@@ -63,7 +63,11 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 			//Start the explosion timer
 			StartCoroutine(ExplosionTimer());
-		}
+			var inv = Environment.Instance.Player.GetComponentInChildren<Character>().GetInventory();
+			var weapon = inv.GetEquipped() as Weapon;
+
+            grenadeDamage = weapon.WeaponDamage * _damageMultiplayer;
+        }
 
 		private void OnCollisionEnter(Collision collision)
 		{

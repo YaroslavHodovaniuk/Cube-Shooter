@@ -36,6 +36,9 @@ public class ShopGrid : MonoBehaviour
     private void LoadSprites()
     {
         textures = Resources.LoadAll<Texture2D>(Type).ToList();
+        // Sort textures by their names (e.g., Weapon_01, Weapon_02)
+        textures.Sort((t1, t2) => string.Compare(t1.name, t2.name, StringComparison.Ordinal));
+
         sprites = new List<Sprite>();
 
         // Перетворення кожної текстури у спрайт

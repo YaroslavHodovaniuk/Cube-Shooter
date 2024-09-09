@@ -2,10 +2,11 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 namespace InfimaGames.LowPolyShooterPack.Legacy
 {
-	public class ProjectileScript : MonoBehaviour
+	public class ProjectileScript : Projectile
 	{
 
 		private bool explodeSelf;
@@ -53,7 +54,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		public ParticleSystem flameParticles;
 
 		[Tooltip("Added delay to let particle effects finish playing, " +
-		         "before destroying object")]
+				 "before destroying object")]
 		public float destroyDelay;
 
 		private void Start()
@@ -171,7 +172,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 			//If the projectile hit the tag "Target", and if "isHit" is false
 			if (collision.gameObject.tag == "Target" &&
-			    collision.gameObject.GetComponent<TargetScript>().isHit == false)
+				collision.gameObject.GetComponent<TargetScript>().isHit == false)
 			{
 
 				//Spawn explosion prefab on surface
@@ -193,35 +194,75 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				if (hit.CompareTag("Player"))
 					continue;
 
-				Rigidbody rb = hit.GetComponent<Rigidbody>();
-
-				//Add force to nearby rigidbodies
-				if (rb != null)
-					rb.AddExplosionForce(power * 50, explosionPos, radius, 3.0F);
-
-				//If the explosion hit the tags "Target", and "isHit" is false
-				if (hit.GetComponent<Collider>().tag == "Target" &&
-				    hit.GetComponent<TargetScript>().isHit == false)
+				//Ignore the player character.
+				if (hit.CompareTag("Player"))
+					continue;
+				// //Ignore collision if bullet collides with "Player" tag
+				if (hit.gameObject.CompareTag("Enemy"))
 				{
+					var FSMs = hit.gameObject.GetComponentsInParent<PlayMakerFSM>();
+					if (FSMs.Length == 0)
+					{
+						Debug.LogWarning("No PlayMakerFSM components found in parent objects.");
+					}
 
-					//Toggle the isHit bool on the target object
-					hit.gameObject.GetComponent<TargetScript>().isHit = true;
-				}
+					PlayMakerFSM damageSystem = null;
+					for (int i = 0; i < FSMs.Length; i++)
+					{
+						if (FSMs[i].Fsm.Name == "Damage System")
+						{
+							damageSystem = FSMs[i];
+						}
+					}
+					if (damageSystem != null)
+					{
+						var floatVariables = damageSystem.FsmVariables.FloatVariables;
+						var projectileDamageVariable = floatVariables.FirstOrDefault(f =>
+						{
+							return f.Name == "DamageToApply";
+						});
+						if (projectileDamageVariable != null)
+						{
+							projectileDamageVariable.Value = _projectileDamage;
+						}
+						else
+						{
+							Debug.LogError($"Variable {_projectileDamage} not found in FloatVariables.");
+						}
+						damageSystem.SendEvent("Hit");
 
-				//If the projectile explosion hits barrels with the tag "ExplosiveBarrel"
-				if (hit.transform.tag == "ExplosiveBarrel")
-				{
+					}
 
-					//Toggle the explode bool on the explosive barrel object
-					hit.transform.gameObject.GetComponent<ExplosiveBarrelScript>().explode = true;
-				}
+					Rigidbody rb = hit.GetComponent<Rigidbody>();
 
-				//If the projectile explosion hits objects with "GasTank" tag
-				if (hit.GetComponent<Collider>().tag == "GasTank")
-				{
-					//If gas tank is within radius, explode it
-					hit.gameObject.GetComponent<GasTankScript>().isHit = true;
-					hit.gameObject.GetComponent<GasTankScript>().explosionTimer = 0.05f;
+					//Add force to nearby rigidbodies
+					if (rb != null)
+						rb.AddExplosionForce(power * 50, explosionPos, radius, 3.0F);
+
+					//If the explosion hit the tags "Target", and "isHit" is false
+					if (hit.GetComponent<Collider>().tag == "Target" &&
+						hit.GetComponent<TargetScript>().isHit == false)
+					{
+
+						//Toggle the isHit bool on the target object
+						hit.gameObject.GetComponent<TargetScript>().isHit = true;
+					}
+
+					//If the projectile explosion hits barrels with the tag "ExplosiveBarrel"
+					if (hit.transform.tag == "ExplosiveBarrel")
+					{
+
+						//Toggle the explode bool on the explosive barrel object
+						hit.transform.gameObject.GetComponent<ExplosiveBarrelScript>().explode = true;
+					}
+
+					//If the projectile explosion hits objects with "GasTank" tag
+					if (hit.GetComponent<Collider>().tag == "GasTank")
+					{
+						//If gas tank is within radius, explode it
+						hit.gameObject.GetComponent<GasTankScript>().isHit = true;
+						hit.gameObject.GetComponent<GasTankScript>().explosionTimer = 0.05f;
+					}
 				}
 			}
 		}

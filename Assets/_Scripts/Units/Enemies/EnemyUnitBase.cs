@@ -12,7 +12,14 @@ public class EnemyUnitBase : UnitBase
 
     public override void SetStats(Stats stats)
     {
+        Stats var = stats;
+
+        var.MaxHealth = (int)LevelUnitManager.Instance.BaseEnemyHP * (1 << (WaveManager.Instance.WaveCount / (LevelUnitManager.Instance.MaxWaveCount / 12)));
+
+        var.Health = var.MaxHealth;
+        stats = var;    
         base.SetStats(stats);
+        Debug.Log(stats.Health);
 
         var FSMs = transform.GetChild(0).GetComponents<PlayMakerFSM>();
         if (FSMs.Length == 0)

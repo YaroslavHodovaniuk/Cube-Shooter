@@ -8,9 +8,12 @@ public class LevelUnitManager : StaticInstance<LevelUnitManager>
     private float SpawnRateProgress = 0.1f;
     private float SpawnRateCooldown = 5f;
     [Space]
-    [SerializeField] private int WaveCount;
+    [SerializeField] private int _waveCount;
+    [SerializeField] private float _baseEnemyHP;
     [SerializeField, Range(5, 20)] private int enemyInOneWave;
 
+    public int MaxWaveCount => _waveCount;
+    public float BaseEnemyHP => _baseEnemyHP;
     private Coroutine _spawnCorotine;
 
     public void SpawnPlayer()

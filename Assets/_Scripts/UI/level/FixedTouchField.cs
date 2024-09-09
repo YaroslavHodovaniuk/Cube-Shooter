@@ -1,70 +1,45 @@
 using InfimaGames.LowPolyShooterPack;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
-public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class FixedTouchField : Joystick
 {
     private Character character;
 
-    [SerializeField] private float sensivity;
+    public InputActionReference lookAction;  // Reference to the look action from Input System
+    public float sensitivity = 0.1f;         // Sensitivity for looking around
 
-    [HideInInspector]
-    public Vector2 TouchDist;
-    [HideInInspector]
-    public Vector2 PointerOld;
-    [HideInInspector]
-    protected int PointerId;
-    [HideInInspector]
-    public bool Pressed;
+    private Vector2 lookInput = Vector2.zero; // Default look input set to zero
+    private bool isTouching = false;          // Flag to track whether the user is touching the screen
 
-    // Use this for initialization
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+        // Subscribe to the player spawning event
         LevelGameManager.OnAfterStateChanged += OnPlayerSpawned;
     }
+
     private void OnPlayerSpawned(LevelGameState levelGameState)
     {
         if (levelGameState == LevelGameState.SpawningHero)
+        {
+            // Get the player character from the environment
             character = Environment.Instance.Player.GetComponentInChildren<Character>();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (Pressed)
-        {
-            if (PointerId >= 0 && PointerId < Input.touches.Length)
-            {
-                TouchDist = Input.touches[PointerId].position - PointerOld;
-                PointerOld = Input.touches[PointerId].position;
-            }
-            else
-            {
-                TouchDist = new Vector2(Input.mousePosition.x, Input.mousePosition.y) - PointerOld;
-                PointerOld = Input.mousePosition;
-            }
-            
         }
-        else
-        {
-            TouchDist = new Vector2();
-        }
-        character.OnLook(TouchDist * sensivity);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    protected override void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
     {
-        Pressed = true;
-        PointerId = eventData.pointerId;
-        PointerOld = eventData.position;
+        base.HandleInput(magnitude, normalised, radius, cam);
+    }
+    public override void OnPointerDown(PointerEventData eventData)
+    {
+        base.OnPointerDown(eventData);
     }
 
-
-    public void OnPointerUp(PointerEventData eventData)
+    public override void OnPointerUp(PointerEventData eventData)
     {
-        Pressed = false;
-    }
-    private void OnDestroy()
-    {
-        LevelGameManager.OnAfterStateChanged -= OnPlayerSpawned;
+        base.OnPointerUp(eventData);
     }
 }
